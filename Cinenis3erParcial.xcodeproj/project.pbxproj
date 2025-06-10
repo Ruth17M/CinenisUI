@@ -11,6 +11,7 @@
 		CB6AE15D2DF8C16A0015BACA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6AE15C2DF8C16A0015BACA /* ContentView.swift */; };
 		CB6AE15F2DF8C16C0015BACA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB6AE15E2DF8C16C0015BACA /* Assets.xcassets */; };
 		CB6AE1622DF8C16C0015BACA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB6AE1612DF8C16C0015BACA /* Preview Assets.xcassets */; };
+		CB6AE16A2DF8C2E50015BACA /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6AE1692DF8C2E50015BACA /* MenuBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		CB6AE15E2DF8C16C0015BACA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB6AE1612DF8C16C0015BACA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB6AE1632DF8C16C0015BACA /* Cinenis3erParcial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cinenis3erParcial.entitlements; sourceTree = "<group>"; };
+		CB6AE1692DF8C2E50015BACA /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		CB6AE1592DF8C16A0015BACA /* Cinenis3erParcial */ = {
 			isa = PBXGroup;
 			children = (
+				CB6AE1692DF8C2E50015BACA /* MenuBar.swift */,
 				CB6AE15A2DF8C16A0015BACA /* Cinenis3erParcialApp.swift */,
 				CB6AE15C2DF8C16A0015BACA /* ContentView.swift */,
 				CB6AE15E2DF8C16C0015BACA /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 			files = (
 				CB6AE15D2DF8C16A0015BACA /* ContentView.swift in Sources */,
 				CB6AE15B2DF8C16A0015BACA /* Cinenis3erParcialApp.swift in Sources */,
+				CB6AE16A2DF8C2E50015BACA /* MenuBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
