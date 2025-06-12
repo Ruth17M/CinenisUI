@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            MenuBar()
-                .frame(maxWidth: .infinity)
-        }
+    @State private var isDarkImage = false
 
-        .frame(maxWidth: .infinity, maxHeight: .infinity)    }
+    var body: some View {
+        ZStack(alignment: .top) {
+            CarouselMainView(isDarkImage: $isDarkImage)
+
+            MenuBar(isDarkImage: isDarkImage)
+                .zIndex(1)
+                .padding(.vertical, 40)
+        }
+        .edgesIgnoringSafeArea(.all)
+    }
 }
 
 #Preview {
