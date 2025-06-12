@@ -9,6 +9,7 @@ import SwiftUI
 struct MainView : View {
     
     @Binding var isDarkImage: Bool
+    @State public var movies : [MovieModel]
 
     var body: some View {
         ScrollView {
@@ -37,7 +38,7 @@ struct MainView : View {
                         
                     }
                     
-                    NavigationLink("Ir a la vista de detalle movie",destination: MovieView())
+                    NavigationLink("Ir a la vista de detalle movie",destination: MovieView(movie: movies[0]))
                         .buttonStyle(.borderedProminent)
                 }
                 
@@ -49,3 +50,4 @@ struct MainView : View {
 #Preview {
     ContentView()
 }
+

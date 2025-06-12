@@ -10,26 +10,9 @@ import SwiftUI
 
 struct MovieView: View {
     //Objeto Pelicula para prueba de MovieView
-    let movie = Movie(
-          title: "IRON MAN",
-          director: "John Favreau",
-          actors: "Downey JR, Howard, Bridges",
-          description: "Iron Man posee una armadura motorizada que le brinda fuerza y resistencia sobrehumanas",
-          posterImage: "ironman_poster",
-          backgroundImage: "ironman_background",
-          rating: 5
-      )
+    let movie : MovieModel
     var body: some View {
         ZStack {
-                   Image(movie.backgroundImage)
-                       .resizable()
-                       .scaledToFill()
-                       .overlay(LinearGradient(
-                           gradient: Gradient(colors: [.black.opacity(0.8), .black]),
-                           startPoint: .top,
-                           endPoint: .bottom)
-                       )
-                       .edgesIgnoringSafeArea(.all)
 
                    HStack(spacing: 0) {
                            DetallesMovieView(movie: movie)
@@ -51,4 +34,6 @@ struct MovieView: View {
                }
     }
     }
+
+
 

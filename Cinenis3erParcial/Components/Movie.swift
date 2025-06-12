@@ -16,3 +16,4 @@ struct Movie {
     let backgroundImage: String
     let rating: Int
 }
+
