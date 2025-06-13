@@ -11,7 +11,9 @@ import SwiftUI
 struct Cinenis3erParcialApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                ContentView()
+            }
         }
     }
 }

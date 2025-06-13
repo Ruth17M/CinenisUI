@@ -35,7 +35,7 @@ struct MovieView: View {
                            DetallesMovieView(movie: movie)
                                  .frame(width: 300)
                                  .background(Color.black)
-
+                                 
                        Divider()
 
                        VStack {

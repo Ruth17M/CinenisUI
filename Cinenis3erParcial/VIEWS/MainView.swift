@@ -37,8 +37,8 @@ struct MainView : View {
                         
                     }
                     
-                    
-                    
+                    NavigationLink("Ir a la vista de detalle movie",destination: MovieView())
+                        .buttonStyle(.borderedProminent)
                 }
                 
                 
