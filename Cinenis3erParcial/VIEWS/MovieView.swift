@@ -32,9 +32,9 @@ struct MovieView: View {
                        .edgesIgnoringSafeArea(.all)
 
                    HStack(spacing: 0) {
-                     // DetailsMovieView(movie: movie)
-                         //  .frame(width: 300)
-                          // .background(Color.black)
+                           DetallesMovieView(movie: movie)
+                                 .frame(width: 300)
+                                 .background(Color.black)
 
                        Divider()
 

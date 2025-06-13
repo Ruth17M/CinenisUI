@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E699B682DFA376C00918CE0 /* DetallesMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B672DFA375A00918CE0 /* DetallesMovieView.swift */; };
+		9E699B6A2DFA3A5600918CE0 /* CarouselMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B692DFA3A4200918CE0 /* CarouselMainView.swift */; };
+		9E699B6C2DFB3A2800918CE0 /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B6B2DFB3A2000918CE0 /* NSImage.swift */; };
+		9E699B6E2DFB50B000918CE0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B6D2DFB50A900918CE0 /* MainView.swift */; };
+		9E699B702DFB513200918CE0 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B6F2DFB512400918CE0 /* Categories.swift */; };
+		9E699B892DFC778E00918CE0 /* SeatGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B882DFC778800918CE0 /* SeatGridView.swift */; };
+		9E699B8B2DFC779E00918CE0 /* SeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B8A2DFC779B00918CE0 /* SeatView.swift */; };
+		9EE017202DF9FC2B00F99331 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0171F2DF9FC2700F99331 /* MovieView.swift */; };
+		9EE017232DF9FD0B00F99331 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE017222DF9FD0900F99331 /* Movie.swift */; };
+		9EE017252DF9FD1000F99331 /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE017242DF9FD0D00F99331 /* Seat.swift */; };
 		CB6AE15B2DF8C16A0015BACA /* Cinenis3erParcialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6AE15A2DF8C16A0015BACA /* Cinenis3erParcialApp.swift */; };
 		CB6AE15D2DF8C16A0015BACA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6AE15C2DF8C16A0015BACA /* ContentView.swift */; };
 		CB6AE15F2DF8C16C0015BACA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB6AE15E2DF8C16C0015BACA /* Assets.xcassets */; };
@@ -15,6 +25,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E699B672DFA375A00918CE0 /* DetallesMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetallesMovieView.swift; sourceTree = "<group>"; };
+		9E699B692DFA3A4200918CE0 /* CarouselMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselMainView.swift; sourceTree = "<group>"; };
+		9E699B6B2DFB3A2000918CE0 /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
+		9E699B6D2DFB50A900918CE0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9E699B6F2DFB512400918CE0 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		9E699B882DFC778800918CE0 /* SeatGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGridView.swift; sourceTree = "<group>"; };
+		9E699B8A2DFC779B00918CE0 /* SeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatView.swift; sourceTree = "<group>"; };
+		9EE0171F2DF9FC2700F99331 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
+		9EE017222DF9FD0900F99331 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		9EE017242DF9FD0D00F99331 /* Seat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
 		CB6AE1572DF8C16A0015BACA /* Cinenis3erParcial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinenis3erParcial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB6AE15A2DF8C16A0015BACA /* Cinenis3erParcialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cinenis3erParcialApp.swift; sourceTree = "<group>"; };
 		CB6AE15C2DF8C16A0015BACA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +55,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9EE0171E2DF9FC2200F99331 /* VIEWS */ = {
+			isa = PBXGroup;
+			children = (
+				9E699B8A2DFC779B00918CE0 /* SeatView.swift */,
+				9E699B882DFC778800918CE0 /* SeatGridView.swift */,
+				9E699B6D2DFB50A900918CE0 /* MainView.swift */,
+				9E699B692DFA3A4200918CE0 /* CarouselMainView.swift */,
+				9E699B6B2DFB3A2000918CE0 /* NSImage.swift */,
+				9E699B672DFA375A00918CE0 /* DetallesMovieView.swift */,
+				9EE0171F2DF9FC2700F99331 /* MovieView.swift */,
+			);
+			path = VIEWS;
+			sourceTree = "<group>";
+		};
+		9EE017212DF9FD0300F99331 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E699B6F2DFB512400918CE0 /* Categories.swift */,
+				9EE017242DF9FD0D00F99331 /* Seat.swift */,
+				9EE017222DF9FD0900F99331 /* Movie.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CB6AE14E2DF8C16A0015BACA = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +98,8 @@
 		CB6AE1592DF8C16A0015BACA /* Cinenis3erParcial */ = {
 			isa = PBXGroup;
 			children = (
+				9EE017212DF9FD0300F99331 /* Models */,
+				9EE0171E2DF9FC2200F99331 /* VIEWS */,
 				CB6AE1692DF8C2E50015BACA /* MenuBar.swift */,
 				CB6AE15A2DF8C16A0015BACA /* Cinenis3erParcialApp.swift */,
 				CB6AE15C2DF8C16A0015BACA /* ContentView.swift */,
@@ -143,8 +189,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB6AE15D2DF8C16A0015BACA /* ContentView.swift in Sources */,
+				9EE017202DF9FC2B00F99331 /* MovieView.swift in Sources */,
+				9E699B6A2DFA3A5600918CE0 /* CarouselMainView.swift in Sources */,
+				9E699B6E2DFB50B000918CE0 /* MainView.swift in Sources */,
+				9EE017252DF9FD1000F99331 /* Seat.swift in Sources */,
+				9E699B6C2DFB3A2800918CE0 /* NSImage.swift in Sources */,
+				9E699B702DFB513200918CE0 /* Categories.swift in Sources */,
+				9E699B892DFC778E00918CE0 /* SeatGridView.swift in Sources */,
 				CB6AE15B2DF8C16A0015BACA /* Cinenis3erParcialApp.swift in Sources */,
+				9E699B682DFA376C00918CE0 /* DetallesMovieView.swift in Sources */,
 				CB6AE16A2DF8C2E50015BACA /* MenuBar.swift in Sources */,
+				9E699B8B2DFC779E00918CE0 /* SeatView.swift in Sources */,
+				9EE017232DF9FD0B00F99331 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
