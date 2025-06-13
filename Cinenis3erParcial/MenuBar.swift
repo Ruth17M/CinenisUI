@@ -45,12 +45,14 @@ struct MenuBar: View {
                         VStack(alignment: .center, spacing: 8) {
                             ForEach(categorias, id: \.self) { categoria in
                                 Text(categoria)
-                                    .foregroundColor(textColor)
+                                    .foregroundColor(Color.white)
+                                    .font(.system(size: 15))
                                     .padding(.horizontal)
                                     .padding(.vertical, 3)
                                     .cornerRadius(5)
                             }
                         }
+                        .frame(width: 100)
                         .background(Color.black.opacity(0.8))
                         .cornerRadius(8)
                         .shadow(radius: 4)
