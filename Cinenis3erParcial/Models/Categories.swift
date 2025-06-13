@@ -13,7 +13,7 @@ struct VideoBackgroundView: NSViewRepresentable {
 
     func makeNSView(context: Context) -> AVPlayerView {
         let playerView = AVPlayerView()
-        if let url = Bundle.main.url(forResource: videoName, withExtension: "mp4") {
+        if let url = Bundle.main.url(forResource: videoName, withExtension: "mov") {
             let player = AVPlayer(url: url)
             player.isMuted = true
             player.play()
@@ -42,15 +42,15 @@ struct Categories: View {
     var body: some View {
         ZStack {
             VideoBackgroundView(videoName: videoName)
-                .frame(width: 180, height: 100)
+                .frame(width: 200, height: 140)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
 
             Text(category)
-                .fontWeight(.bold)
+                .font(.system(size: 20))
                 .foregroundColor(.white)
                 .shadow(radius: 2)
         }
-        .frame(width: 180, height: 100)
+        .frame(width: 200, height: 140)
         .buttonStyle(PlainButtonStyle())
     }
 }

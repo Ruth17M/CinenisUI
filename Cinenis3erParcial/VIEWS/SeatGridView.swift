@@ -44,7 +44,7 @@ struct SeatGridView: View {
                             let seat = seats[rowIndex][columnIndex]
                             SeatView(seat: seat)
                         } else {
-                            // En caso de error, muestra un asiento invisible
+                            // asiento invisible
                             Rectangle()
                                 .frame(width: 30, height: 30)
                                 .opacity(0)

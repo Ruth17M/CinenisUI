@@ -15,19 +15,18 @@ struct MainView : View {
             CarouselMainView(isDarkImage: $isDarkImage)
                 .frame(minHeight: 900)
             VStack {
-                HStack (spacing: 40) {
+                HStack (spacing: 50) {
                     Categories(category: "Terror", videoName: "video_terror")
                     Categories(category: "Comedia", videoName: "video_comedia")
                     Categories(category: "Romance", videoName: "video_romance")
                     Categories(category: "Ficción", videoName: "video_ficcion")
-                    Categories(category: "Infantiles", videoName: "video_infantiles")
+                    Categories(category: "Infantiles", videoName: "video_infantil")
                 }
                 .padding(.vertical, 50)
                 
-                VStack {
+                VStack(alignment: .leading, spacing: 20) {
                     HStack{
-                        Text("Miercoles, 4 de junio")
-                            .font(.title2)
+                        FechaHoyView()                      
                         Spacer()
                         
                     }
@@ -40,6 +39,7 @@ struct MainView : View {
                     NavigationLink("Ir a la vista de detalle movie",destination: MovieView())
                         .buttonStyle(.borderedProminent)
                 }
+                .padding(.horizontal, 60)
                 
                 
             }

@@ -16,7 +16,7 @@ struct MovieView: View {
           actors: "Downey JR, Howard, Bridges",
           description: "Iron Man posee una armadura motorizada que le brinda fuerza y resistencia sobrehumanas",
           posterImage: "ironman_poster",
-          backgroundImage: "ironman_background",
+          backgroundImage: "LogoBlanco",
           rating: 5
       )
     var body: some View {
@@ -44,7 +44,7 @@ struct MovieView: View {
                                .foregroundColor(.white)
                                .padding(.top)
 
-                         //  SeatsView()
+                           SeatGridView()
                        }
                        .padding()
                    }
