@@ -11,17 +11,38 @@ struct MainView : View {
     @Binding var isDarkImage: Bool
 
     var body: some View {
-        VStack {
+        ScrollView {
             CarouselMainView(isDarkImage: $isDarkImage)
-
-            HStack (spacing: 40) {
-                Categories(categories: "Terror")
-                Categories(categories: "Comedia")
-                Categories(categories: "Romance")
-                Categories(categories: "Ficción")
+                .frame(minHeight: 900)
+            VStack {
+                HStack (spacing: 40) {
+                    Categories(category: "Terror", videoName: "video_terror")
+                    Categories(category: "Comedia", videoName: "video_comedia")
+                    Categories(category: "Romance", videoName: "video_romance")
+                    Categories(category: "Ficción", videoName: "video_ficcion")
+                    Categories(category: "Infantiles", videoName: "video_infantiles")
+                }
+                .padding(.vertical, 50)
+                
+                VStack {
+                    HStack{
+                        Text("Miercoles, 4 de junio")
+                            .font(.title2)
+                        Spacer()
+                        
+                    }
+                    .padding(.leading, 80)
+                    
+                    HStack{
+                        
+                    }
+                    
+                    
+                    
+                }
+                
+                
             }
-            .padding(.vertical, 50)
-            
         }
     }
 }

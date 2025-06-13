@@ -1,0 +1,12 @@
+{
+  "data" : [
+    {
+      "filename" : "video_ficcion.mov",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -6,26 +6,55 @@
 //
 
 import SwiftUI
+import AVKit
+
+struct VideoBackgroundView: NSViewRepresentable {
+    let videoName: String
+
+    func makeNSView(context: Context) -> AVPlayerView {
+        let playerView = AVPlayerView()
+        if let url = Bundle.main.url(forResource: videoName, withExtension: "mp4") {
+            let player = AVPlayer(url: url)
+            player.isMuted = true
+            player.play()
+            player.actionAtItemEnd = .none
+
+            // Loop
+            NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { _ in
+                player.seek(to: .zero)
+                player.play()
+            }
+
+            playerView.player = player
+        }
+        playerView.controlsStyle = .none
+        playerView.videoGravity = .resizeAspectFill
+        return playerView
+    }
+
+    func updateNSView(_ nsView: AVPlayerView, context: Context) {}
+}
 
 struct Categories: View {
-    let categories: String
+    let category: String
+    let videoName: String
+
     var body: some View {
-        Button {
-            print("Hello, World!")
-        } label: {
-            Text(categories)
+        ZStack {
+            VideoBackgroundView(videoName: videoName)
+                .frame(width: 180, height: 100)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+
+            Text(category)
                 .fontWeight(.bold)
-                .foregroundStyle(Color.white)
-            
-            
-            
+                .foregroundColor(.white)
+                .shadow(radius: 2)
         }
         .frame(width: 180, height: 100)
         .buttonStyle(PlainButtonStyle())
-        .background(Color("ColorNegro"))
-        .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }
+
 
 #Preview {
     ContentView()

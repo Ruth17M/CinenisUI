@@ -8,44 +8,20 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isDarkImage = false
-    @State private var selectedTab = 0
 
     var body: some View {
         ZStack(alignment: .top) {
-            // Contenido dinámico por pestañas
-            TabView(selection: $selectedTab) {
+            TabView {
                 MainView(isDarkImage: $isDarkImage)
-                    .tag(0)
                 Text("Otra pestaña")
-                    .tag(1)
-                Text("Otra más")
-                    .tag(2)
+                Text("Más contenido")
             }
 
-            // Menú encima de todo
             MenuBar(isDarkImage: isDarkImage)
-                .padding(.top, 40)
                 .zIndex(1)
+                .padding(.top, 50)
         }
         .edgesIgnoringSafeArea(.top)
-        VStack {
-            HStack{
-                Text("Miercoles, 4 de junio")
-                    .font(.title2)
-                Spacer()
-                
-            }
-            .padding(.leading, 80)
-            
-            HStack{
-                
-            }
-            
-            
-            
-        }
-        
-        
     }
 }
 
