@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Movie : Codable, Identifiable{
+struct Movie : Content{
     let id: Int?
     let functionDate: Date
     let room: Int

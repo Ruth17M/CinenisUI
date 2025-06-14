@@ -28,6 +28,9 @@
 		CB6AE15F2DF8C16C0015BACA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB6AE15E2DF8C16C0015BACA /* Assets.xcassets */; };
 		CB6AE1622DF8C16C0015BACA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB6AE1612DF8C16C0015BACA /* Preview Assets.xcassets */; };
 		CB6AE16A2DF8C2E50015BACA /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6AE1692DF8C2E50015BACA /* MenuBar.swift */; };
+		CB7CF5432DFB86E300AE8469 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CF5422DFB86E300AE8469 /* MovieModel.swift */; };
+		CB7CF5452DFB87E100AE8469 /* SaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CF5442DFB87E100AE8469 /* SaleModel.swift */; };
+		CB7CF5472DFB885A00AE8469 /* FunctionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CF5462DFB885A00AE8469 /* FunctionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		CB6AE1612DF8C16C0015BACA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB6AE1632DF8C16C0015BACA /* Cinenis3erParcial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cinenis3erParcial.entitlements; sourceTree = "<group>"; };
 		CB6AE1692DF8C2E50015BACA /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		CB7CF5422DFB86E300AE8469 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		CB7CF5442DFB87E100AE8469 /* SaleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleModel.swift; sourceTree = "<group>"; };
+		CB7CF5462DFB885A00AE8469 /* FunctionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +90,9 @@
 		9EE017212DF9FD0300F99331 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9E699B6F2DFB512400918CE0 /* Categories.swift */,
-				9EE017242DF9FD0D00F99331 /* Seat.swift */,
-				9EE017222DF9FD0900F99331 /* Movie.swift */,
+				CB7CF5422DFB86E300AE8469 /* MovieModel.swift */,
+				CB7CF5442DFB87E100AE8469 /* SaleModel.swift */,
+				CB7CF5462DFB885A00AE8469 /* FunctionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -111,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				9E3AD4252DFCDCA500A37725 /* FechaHoyView.swift */,
+				CB7CF5412DFB85F900AE8469 /* Components */,
 				9EE017212DF9FD0300F99331 /* Models */,
 				9EE0171E2DF9FC2200F99331 /* VIEWS */,
 				CB6AE1692DF8C2E50015BACA /* MenuBar.swift */,
@@ -134,6 +141,16 @@
 				9E3AD4232DFCDB4C00A37725 /* video_infantil.mov */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CB7CF5412DFB85F900AE8469 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9E699B6F2DFB512400918CE0 /* Categories.swift */,
+				9EE017242DF9FD0D00F99331 /* Seat.swift */,
+				9EE017222DF9FD0900F99331 /* Movie.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,17 +228,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB7CF5432DFB86E300AE8469 /* MovieModel.swift in Sources */,
 				CB6AE15D2DF8C16A0015BACA /* ContentView.swift in Sources */,
 				9EE017202DF9FC2B00F99331 /* MovieView.swift in Sources */,
 				9E699B6A2DFA3A5600918CE0 /* CarouselMainView.swift in Sources */,
 				9E3AD4262DFCDCB400A37725 /* FechaHoyView.swift in Sources */,
 				9E699B6E2DFB50B000918CE0 /* MainView.swift in Sources */,
+				CB7CF5472DFB885A00AE8469 /* FunctionModel.swift in Sources */,
 				9EE017252DF9FD1000F99331 /* Seat.swift in Sources */,
 				9E699B6C2DFB3A2800918CE0 /* NSImage.swift in Sources */,
 				9E699B702DFB513200918CE0 /* Categories.swift in Sources */,
 				9E699B892DFC778E00918CE0 /* SeatGridView.swift in Sources */,
 				CB6AE15B2DF8C16A0015BACA /* Cinenis3erParcialApp.swift in Sources */,
 				9E699B682DFA376C00918CE0 /* DetallesMovieView.swift in Sources */,
+				CB7CF5452DFB87E100AE8469 /* SaleModel.swift in Sources */,
 				CB6AE16A2DF8C2E50015BACA /* MenuBar.swift in Sources */,
 				9E699B8B2DFC779E00918CE0 /* SeatView.swift in Sources */,
 				9EE017232DF9FD0B00F99331 /* Movie.swift in Sources */,

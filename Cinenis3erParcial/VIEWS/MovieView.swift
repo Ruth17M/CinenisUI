@@ -19,19 +19,13 @@ struct MovieView: View {
           backgroundImage: "ironman_background",
           rating: 5
       )
-    @State private var isDarkImage = true
     var body: some View {
-        
-        ScrollView {
-            
-        
-            ZStack(alignment: .top){
-                // Fondo con gradiente
+        ZStack {
                    Image(movie.backgroundImage)
                        .resizable()
                        .scaledToFill()
                        .overlay(LinearGradient(
-                           gradient: Gradient(colors: [.black.opacity(0.5), .black]),
+                           gradient: Gradient(colors: [.black.opacity(0.8), .black]),
                            startPoint: .top,
                            endPoint: .bottom)
                        )
@@ -65,4 +59,6 @@ struct MovieView: View {
         }
     }
     }
+
+
 

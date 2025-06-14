@@ -1,13 +1,6 @@
-//
-//  Movie.swift
-//  Cinenis3erParcial
-//
-//  Created by Ruth Manriquez on 11/06/25.
-//
+import Foundation
 
-import SwiftUI
-
-struct Movie : Codable, Identifiable{
+struct Function : Codable, Identifiable{
     let id: Int?
     let functionDate: Date
     let room: Int
@@ -20,5 +13,5 @@ struct Movie : Codable, Identifiable{
         self.room = function.room
         self.availability = function.availability
         self.movie = function.movie
-    }   
+    }
 }

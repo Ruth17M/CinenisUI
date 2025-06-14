@@ -8,26 +8,29 @@
 import SwiftUI
 
 struct DetallesMovieView: View {
-    let movie: Movie
+    let movie: MovieModel
     
     var body: some View {
         VStack(alignment: .leading) {
-            Image(movie.posterImage)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 300)
-
-            Text("Director").bold()
-            Text(movie.director)
+            AsyncImage(url: URL(string: movie.image))
+            {image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 300)
+            }placeholder: {
+                Color.gray
+            }
+                
             
             Text("Actores").bold()
-            Text(movie.actors)
+            Text(movie.genre)
             
             Text("Descripción").bold()
             Text(movie.description)
             
             HStack {
-                ForEach(0..<movie.rating, id: \.self) { _ in
+                ForEach(0..<movie.stars, id: \.self) { _ in
                     Image(systemName: "star.fill")
                         .foregroundColor(.yellow)
                 }
@@ -37,3 +40,4 @@ struct DetallesMovieView: View {
         .foregroundColor(.white)
         .background(Color.black)    }
 }
+
