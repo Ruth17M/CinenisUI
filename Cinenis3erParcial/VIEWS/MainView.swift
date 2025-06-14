@@ -31,6 +31,7 @@ struct MainView : View {
                         
                     }
                     .padding(.leading, 80)
+                    .padding(.vertical, 15)
                     
                     
                     HStack{

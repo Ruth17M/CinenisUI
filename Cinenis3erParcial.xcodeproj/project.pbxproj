@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E3AD41C2DFCD8C400A37725 /* video_ficcion.mov in Resources */ = {isa = PBXBuildFile; fileRef = 9E3AD41B2DFCD8C400A37725 /* video_ficcion.mov */; };
+		9E3AD41E2DFCD8E400A37725 /* video_comedia.mov in Resources */ = {isa = PBXBuildFile; fileRef = 9E3AD41D2DFCD8E400A37725 /* video_comedia.mov */; };
+		9E3AD4202DFCD8ED00A37725 /* video_romance.mov in Resources */ = {isa = PBXBuildFile; fileRef = 9E3AD41F2DFCD8ED00A37725 /* video_romance.mov */; };
+		9E3AD4222DFCD8F600A37725 /* video_terror.mov in Resources */ = {isa = PBXBuildFile; fileRef = 9E3AD4212DFCD8F600A37725 /* video_terror.mov */; };
+		9E3AD4242DFCDB4C00A37725 /* video_infantil.mov in Resources */ = {isa = PBXBuildFile; fileRef = 9E3AD4232DFCDB4C00A37725 /* video_infantil.mov */; };
+		9E3AD4262DFCDCB400A37725 /* FechaHoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3AD4252DFCDCA500A37725 /* FechaHoyView.swift */; };
 		9E699B682DFA376C00918CE0 /* DetallesMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B672DFA375A00918CE0 /* DetallesMovieView.swift */; };
 		9E699B6A2DFA3A5600918CE0 /* CarouselMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B692DFA3A4200918CE0 /* CarouselMainView.swift */; };
 		9E699B6C2DFB3A2800918CE0 /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B6B2DFB3A2000918CE0 /* NSImage.swift */; };
@@ -25,6 +31,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E3AD41B2DFCD8C400A37725 /* video_ficcion.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video_ficcion.mov; sourceTree = "<group>"; };
+		9E3AD41D2DFCD8E400A37725 /* video_comedia.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video_comedia.mov; sourceTree = "<group>"; };
+		9E3AD41F2DFCD8ED00A37725 /* video_romance.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video_romance.mov; sourceTree = "<group>"; };
+		9E3AD4212DFCD8F600A37725 /* video_terror.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video_terror.mov; sourceTree = "<group>"; };
+		9E3AD4232DFCDB4C00A37725 /* video_infantil.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video_infantil.mov; sourceTree = "<group>"; };
+		9E3AD4252DFCDCA500A37725 /* FechaHoyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FechaHoyView.swift; sourceTree = "<group>"; };
 		9E699B672DFA375A00918CE0 /* DetallesMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetallesMovieView.swift; sourceTree = "<group>"; };
 		9E699B692DFA3A4200918CE0 /* CarouselMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselMainView.swift; sourceTree = "<group>"; };
 		9E699B6B2DFB3A2000918CE0 /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
@@ -98,6 +110,7 @@
 		CB6AE1592DF8C16A0015BACA /* Cinenis3erParcial */ = {
 			isa = PBXGroup;
 			children = (
+				9E3AD4252DFCDCA500A37725 /* FechaHoyView.swift */,
 				9EE017212DF9FD0300F99331 /* Models */,
 				9EE0171E2DF9FC2200F99331 /* VIEWS */,
 				CB6AE1692DF8C2E50015BACA /* MenuBar.swift */,
@@ -114,6 +127,11 @@
 			isa = PBXGroup;
 			children = (
 				CB6AE1612DF8C16C0015BACA /* Preview Assets.xcassets */,
+				9E3AD41B2DFCD8C400A37725 /* video_ficcion.mov */,
+				9E3AD41D2DFCD8E400A37725 /* video_comedia.mov */,
+				9E3AD41F2DFCD8ED00A37725 /* video_romance.mov */,
+				9E3AD4212DFCD8F600A37725 /* video_terror.mov */,
+				9E3AD4232DFCDB4C00A37725 /* video_infantil.mov */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -177,7 +195,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB6AE1622DF8C16C0015BACA /* Preview Assets.xcassets in Resources */,
+				9E3AD41E2DFCD8E400A37725 /* video_comedia.mov in Resources */,
+				9E3AD41C2DFCD8C400A37725 /* video_ficcion.mov in Resources */,
 				CB6AE15F2DF8C16C0015BACA /* Assets.xcassets in Resources */,
+				9E3AD4242DFCDB4C00A37725 /* video_infantil.mov in Resources */,
+				9E3AD4222DFCD8F600A37725 /* video_terror.mov in Resources */,
+				9E3AD4202DFCD8ED00A37725 /* video_romance.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +214,7 @@
 				CB6AE15D2DF8C16A0015BACA /* ContentView.swift in Sources */,
 				9EE017202DF9FC2B00F99331 /* MovieView.swift in Sources */,
 				9E699B6A2DFA3A5600918CE0 /* CarouselMainView.swift in Sources */,
+				9E3AD4262DFCDCB400A37725 /* FechaHoyView.swift in Sources */,
 				9E699B6E2DFB50B000918CE0 /* MainView.swift in Sources */,
 				9EE017252DF9FD1000F99331 /* Seat.swift in Sources */,
 				9E699B6C2DFB3A2800918CE0 /* NSImage.swift in Sources */,
