@@ -32,9 +32,20 @@ struct MainView : View {
                     }
                     .padding(.leading, 80)
                     
+                    
                     HStack{
-                        
+                        AsyncImage(url: URL(string: "https://m.media-amazon.com/images/I/81lZ6xboAfL.jpg")) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .frame(width: 250, height: 300)
+
                     }
+                    .padding(.leading, 50)
                     
                     NavigationLink("Ir a la vista de detalle movie",destination: MovieView())
                         .buttonStyle(.borderedProminent)

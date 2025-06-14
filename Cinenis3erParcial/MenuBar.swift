@@ -71,7 +71,7 @@ struct MenuBar: View {
             HStack {
                 Image(systemName: "magnifyingglass")
                     .resizable()
-                    .frame(width: 30, height: 30)
+                    .frame(width: 25, height: 25)
                     .foregroundColor(textColor)
 
                 TextField("Buscar películas", text: .constant(""))
@@ -80,7 +80,7 @@ struct MenuBar: View {
                     .padding(5)
                     .textFieldStyle(PlainTextFieldStyle())
             }
-            .padding(5)
+            .padding(7)
             .overlay(
                 Capsule()
                     .stroke(textColor, lineWidth: 1)
