@@ -20,9 +20,12 @@
 		9E699B702DFB513200918CE0 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B6F2DFB512400918CE0 /* Categories.swift */; };
 		9E699B892DFC778E00918CE0 /* SeatGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B882DFC778800918CE0 /* SeatGridView.swift */; };
 		9E699B8B2DFC779E00918CE0 /* SeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B8A2DFC779B00918CE0 /* SeatView.swift */; };
+		9EB59BF52DFDE1B900F61449 /* MovieMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB59BF42DFDE1B000F61449 /* MovieMainView.swift */; };
+		9EB59BF92DFDE47C00F61449 /* Horarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB59BF82DFDE47300F61449 /* Horarios.swift */; };
 		9EE017202DF9FC2B00F99331 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0171F2DF9FC2700F99331 /* MovieView.swift */; };
 		9EE017232DF9FD0B00F99331 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE017222DF9FD0900F99331 /* Movie.swift */; };
 		9EE017252DF9FD1000F99331 /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE017242DF9FD0D00F99331 /* Seat.swift */; };
+		9EF45B592DFD4F8D0013C9BE /* teatro_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9EF45B582DFD4F8D0013C9BE /* teatro_background.jpg */; };
 		CB6AE15B2DF8C16A0015BACA /* Cinenis3erParcialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6AE15A2DF8C16A0015BACA /* Cinenis3erParcialApp.swift */; };
 		CB6AE15D2DF8C16A0015BACA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6AE15C2DF8C16A0015BACA /* ContentView.swift */; };
 		CB6AE15F2DF8C16C0015BACA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB6AE15E2DF8C16C0015BACA /* Assets.xcassets */; };
@@ -44,9 +47,13 @@
 		9E699B6F2DFB512400918CE0 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		9E699B882DFC778800918CE0 /* SeatGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGridView.swift; sourceTree = "<group>"; };
 		9E699B8A2DFC779B00918CE0 /* SeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatView.swift; sourceTree = "<group>"; };
+		9EB59BF42DFDE1B000F61449 /* MovieMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMainView.swift; sourceTree = "<group>"; };
+		9EB59BF82DFDE47300F61449 /* Horarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Horarios.swift; sourceTree = "<group>"; };
 		9EE0171F2DF9FC2700F99331 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		9EE017222DF9FD0900F99331 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		9EE017242DF9FD0D00F99331 /* Seat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
+		9EF45B582DFD4F8D0013C9BE /* teatro_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = teatro_background.jpg; sourceTree = "<group>"; };
+		9EF45B5E2DFD599D0013C9BE /* asientosprueba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asientosprueba.swift; sourceTree = "<group>"; };
 		CB6AE1572DF8C16A0015BACA /* Cinenis3erParcial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinenis3erParcial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB6AE15A2DF8C16A0015BACA /* Cinenis3erParcialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cinenis3erParcialApp.swift; sourceTree = "<group>"; };
 		CB6AE15C2DF8C16A0015BACA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,6 +77,7 @@
 		9EE0171E2DF9FC2200F99331 /* VIEWS */ = {
 			isa = PBXGroup;
 			children = (
+				9EB59BF42DFDE1B000F61449 /* MovieMainView.swift */,
 				9E699B8A2DFC779B00918CE0 /* SeatView.swift */,
 				9E699B882DFC778800918CE0 /* SeatGridView.swift */,
 				9E699B6D2DFB50A900918CE0 /* MainView.swift */,
@@ -77,6 +85,7 @@
 				9E699B6B2DFB3A2000918CE0 /* NSImage.swift */,
 				9E699B672DFA375A00918CE0 /* DetallesMovieView.swift */,
 				9EE0171F2DF9FC2700F99331 /* MovieView.swift */,
+				9EF45B5E2DFD599D0013C9BE /* asientosprueba.swift */,
 			);
 			path = VIEWS;
 			sourceTree = "<group>";
@@ -110,6 +119,7 @@
 		CB6AE1592DF8C16A0015BACA /* Cinenis3erParcial */ = {
 			isa = PBXGroup;
 			children = (
+				9EB59BF82DFDE47300F61449 /* Horarios.swift */,
 				9E3AD4252DFCDCA500A37725 /* FechaHoyView.swift */,
 				9EE017212DF9FD0300F99331 /* Models */,
 				9EE0171E2DF9FC2200F99331 /* VIEWS */,
@@ -117,6 +127,7 @@
 				CB6AE15A2DF8C16A0015BACA /* Cinenis3erParcialApp.swift */,
 				CB6AE15C2DF8C16A0015BACA /* ContentView.swift */,
 				CB6AE15E2DF8C16C0015BACA /* Assets.xcassets */,
+				9EF45B582DFD4F8D0013C9BE /* teatro_background.jpg */,
 				CB6AE1632DF8C16C0015BACA /* Cinenis3erParcial.entitlements */,
 				CB6AE1602DF8C16C0015BACA /* Preview Content */,
 			);
@@ -196,6 +207,7 @@
 			files = (
 				CB6AE1622DF8C16C0015BACA /* Preview Assets.xcassets in Resources */,
 				9E3AD41E2DFCD8E400A37725 /* video_comedia.mov in Resources */,
+				9EF45B592DFD4F8D0013C9BE /* teatro_background.jpg in Resources */,
 				9E3AD41C2DFCD8C400A37725 /* video_ficcion.mov in Resources */,
 				CB6AE15F2DF8C16C0015BACA /* Assets.xcassets in Resources */,
 				9E3AD4242DFCDB4C00A37725 /* video_infantil.mov in Resources */,
@@ -211,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EB59BF92DFDE47C00F61449 /* Horarios.swift in Sources */,
 				CB6AE15D2DF8C16A0015BACA /* ContentView.swift in Sources */,
 				9EE017202DF9FC2B00F99331 /* MovieView.swift in Sources */,
 				9E699B6A2DFA3A5600918CE0 /* CarouselMainView.swift in Sources */,
@@ -220,6 +233,7 @@
 				9E699B6C2DFB3A2800918CE0 /* NSImage.swift in Sources */,
 				9E699B702DFB513200918CE0 /* Categories.swift in Sources */,
 				9E699B892DFC778E00918CE0 /* SeatGridView.swift in Sources */,
+				9EB59BF52DFDE1B900F61449 /* MovieMainView.swift in Sources */,
 				CB6AE15B2DF8C16A0015BACA /* Cinenis3erParcialApp.swift in Sources */,
 				9E699B682DFA376C00918CE0 /* DetallesMovieView.swift in Sources */,
 				CB6AE16A2DF8C2E50015BACA /* MenuBar.swift in Sources */,
