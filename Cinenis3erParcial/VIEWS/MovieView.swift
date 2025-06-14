@@ -16,26 +16,33 @@ struct MovieView: View {
           actors: "Downey JR, Howard, Bridges",
           description: "Iron Man posee una armadura motorizada que le brinda fuerza y resistencia sobrehumanas",
           posterImage: "ironman_poster",
-          backgroundImage: "LogoBlanco",
+          backgroundImage: "ironman_background",
           rating: 5
       )
+    @State private var isDarkImage = true
     var body: some View {
-        ZStack {
+        
+        ScrollView {
+            
+        
+            ZStack(alignment: .top){
+                // Fondo con gradiente
                    Image(movie.backgroundImage)
                        .resizable()
                        .scaledToFill()
                        .overlay(LinearGradient(
-                           gradient: Gradient(colors: [.black.opacity(0.8), .black]),
+                           gradient: Gradient(colors: [.black.opacity(0.5), .black]),
                            startPoint: .top,
                            endPoint: .bottom)
                        )
                        .edgesIgnoringSafeArea(.all)
 
+                   // Contenido principal
                    HStack(spacing: 0) {
-                           DetallesMovieView(movie: movie)
-                                 .frame(width: 300)
-                                 .background(Color.black)
-                                 
+                       DetallesMovieView(movie: movie)
+                           .frame(width: 300)
+                           .background(Color.black)
+
                        Divider()
 
                        VStack {
@@ -48,7 +55,14 @@ struct MovieView: View {
                        }
                        .padding()
                    }
-               }
+
+                   // MenuBar 
+                   MenuBar(isDarkImage: isDarkImage)
+                       .padding(.top, 5)
+                       .zIndex(1)
+                       .frame(maxWidth: .infinity, alignment: .top)
+            }
+        }
     }
     }
 
