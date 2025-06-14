@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SeatGridView: View {
+    
     let rows = Array("ABCDEFGH")
     let columns = 1...12
     @State private var seats: [[Seat]] = []
@@ -15,11 +16,67 @@ struct SeatGridView: View {
 
     var body: some View {
         VStack(spacing: 10) {
-            Text("PANTALLA")
-                .font(.headline)
+           
+            
+            //Asientos muestra
+            HStack(spacing: 40) {
+                
+                //seleccionado
+                VStack(spacing: 8) {
+                    Image(systemName: "carseat.left.fill")
+                        .font(.system(size: 30))
+                        .foregroundColor(.yellow)
+                    Text("Seleccionado")
+                        .foregroundColor(.white)
+                        .font(.caption)
+                }
+                
+                // Asiento ocupado
+                VStack(spacing: 8) {
+                    Image(systemName: "carseat.left.fill")
+                        .font(.system(size: 30))
+                        .foregroundColor(.red)
+                    Text("Ocupado")
+                        .foregroundColor(.white)
+                        .font(.caption)
+                }
+                
+                // Asiento seleccionado
+                VStack(spacing: 8) {
+                    Image(systemName: "carseat.left.fill")
+                        .font(.system(size: 30))
+                        .foregroundColor(.green)
+                    Text("Libre")
+                        .foregroundColor(.white)
+                        .font(.caption)
+                }
+            }
+            .padding()
 
-            // Encabezado con números de columna
-            HStack {
+            //Linea curva de pantalla
+            GeometryReader { geometry in
+                      Path { path in
+                          let width = geometry.size.width
+                          let height: CGFloat = 20
+
+                          path.move(to: CGPoint(x: 0, y: height))
+                          path.addQuadCurve(
+                              to: CGPoint(x: width, y: height),
+                              control: CGPoint(x: width / 2, y: 0)
+                          )
+                      }
+                      .stroke(Color.white, lineWidth: 4)
+                  }
+                  .frame(height: 25)
+            Text("PANTALLA")
+                .foregroundColor(.white)
+                .font(.title)
+                .padding(.horizontal)
+             
+
+            
+            //números de columna
+            HStack(spacing: 10)  {
                 Text(" ") // espacio en blanco para alineación
                     .frame(width: 30)
 
@@ -27,16 +84,19 @@ struct SeatGridView: View {
                     Text("\(number)")
                         .frame(width: 30, height: 20)
                         .font(.caption)
+                        .foregroundColor(.white)
+                        
                 }
             }
 
-            // Asientos con letras a la izquierda
+            //letras de asientos
             ForEach(0..<rows.count, id: \.self) { rowIndex in
                 HStack(spacing: 0) {
                     // Letra de la fila
                     Text(String(rows[rowIndex]))
                         .frame(width: 30)
                         .font(.caption)
+                        .foregroundColor(.white)
 
                     // Asientos de esa fila
                     ForEach(0..<columns.count, id: \.self) { columnIndex in
@@ -50,6 +110,8 @@ struct SeatGridView: View {
                                 .opacity(0)
                         }
                     }
+                    
+                    
                 }
             }
 
@@ -72,24 +134,29 @@ struct SeatGridView: View {
             allSeats.append(rowSeats)
         }
 
-        // Aplanar, modificar estados, y rearmar
+        // Aplanar la matriz
         var flatSeats = allSeats.flatMap { $0 }
 
-        flatSeats.shuffle()
-
-        for i in 0..<15 {
-            flatSeats[i].status = .occupied
+        // Escoge 15 posiciones únicas para los asientos ocupados
+        var occupiedIndices = Set<Int>()
+        while occupiedIndices.count < 15 {
+            occupiedIndices.insert(Int.random(in: 0..<flatSeats.count))
         }
 
+        for index in occupiedIndices {
+            flatSeats[index].status = .occupied
+        }
+
+        // Marcar asientos seleccionados
         var selected = 0
-        for i in 15..<flatSeats.count {
+        for i in 0..<flatSeats.count {
             if selected < selectedSeatsCount && flatSeats[i].status == .available {
                 flatSeats[i].status = .selected
                 selected += 1
             }
         }
 
-        // Convertir de nuevo en matriz
+        // Reconstruir matriz
         var reshaped: [[Seat]] = []
         var index = 0
         for _ in rows {
@@ -103,4 +170,5 @@ struct SeatGridView: View {
 
         self.seats = reshaped
     }
+
 }

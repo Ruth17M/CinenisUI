@@ -75,10 +75,12 @@ struct MenuBar: View {
                     .foregroundColor(textColor)
 
                 TextField("Buscar películas", text: .constant(""))
-                    .foregroundStyle(textColor)
+                   // .foregroundColor(.white)
+                   .foregroundStyle(textColor)
                     .font(.system(size: 17))
                     .padding(5)
                     .textFieldStyle(PlainTextFieldStyle())
+                    
             }
             .padding(7)
             .overlay(
