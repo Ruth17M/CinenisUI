@@ -15,11 +15,11 @@ class MovieViewModel : ObservableObject {
 
     func loadMovies() async {
         let url = URL(string: "\(BASE_URL)/movies")
-        do{ // _ NO SE OCUPA EL SEGUNDO DATO, datos vienen en json
+        do{ 
             isMovieLoading = true
             let (data, _) = try await URLSession.shared.data(from: url!)
             let moviesDecoded = try JSONDecoder().decode([Movie].self, from: data)
-            mmovieList = moviesDecoded
+            movieList = moviesDecoded
             isMovieLoading = false
         }
         catch{
