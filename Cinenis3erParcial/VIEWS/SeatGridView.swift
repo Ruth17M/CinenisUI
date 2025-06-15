@@ -18,41 +18,6 @@ struct SeatGridView: View {
         VStack(spacing: 10) {
            
             
-            //Asientos muestra
-            HStack(spacing: 40) {
-                
-                //seleccionado
-                VStack(spacing: 8) {
-                    Image(systemName: "carseat.left.fill")
-                        .font(.system(size: 30))
-                        .foregroundColor(.yellow)
-                    Text("Seleccionado")
-                        .foregroundColor(.white)
-                        .font(.caption)
-                }
-                
-                // Asiento ocupado
-                VStack(spacing: 8) {
-                    Image(systemName: "carseat.left.fill")
-                        .font(.system(size: 30))
-                        .foregroundColor(.red)
-                    Text("Ocupado")
-                        .foregroundColor(.white)
-                        .font(.caption)
-                }
-                
-                // Asiento seleccionado
-                VStack(spacing: 8) {
-                    Image(systemName: "carseat.left.fill")
-                        .font(.system(size: 30))
-                        .foregroundColor(.green)
-                    Text("Libre")
-                        .foregroundColor(.white)
-                        .font(.caption)
-                }
-            }
-            .padding()
-
             //Linea curva de pantalla
             GeometryReader { geometry in
                       Path { path in
@@ -115,12 +80,51 @@ struct SeatGridView: View {
                 }
             }
 
-            Spacer()
+           // Spacer()
+            
+            //Asientos muestra
+            HStack(spacing: 40) {
+                
+                //seleccionado
+                VStack(spacing: 8) {
+                    Image(systemName: "carseat.left.fill")
+                        .font(.system(size: 30))
+                        .foregroundColor(.yellow)
+                    Text("Seleccionado")
+                        .foregroundColor(.white)
+                        .font(.caption)
+                }
+                
+                // Asiento ocupado
+                VStack(spacing: 8) {
+                    Image(systemName: "carseat.left.fill")
+                        .font(.system(size: 30))
+                        .foregroundColor(.red)
+                    Text("Ocupado")
+                        .foregroundColor(.white)
+                        .font(.caption)
+                }
+                
+                // Asiento seleccionado
+                VStack(spacing: 8) {
+                    Image(systemName: "carseat.left.fill")
+                        .font(.system(size: 30))
+                        .foregroundColor(.green)
+                    Text("Libre")
+                        .foregroundColor(.white)
+                        .font(.caption)
+                }
+            }
+            .padding()
+
         }
         .padding()
         .onAppear {
             generateSeats()
+            
+            
         }
+        
     }
 
     func generateSeats() {
@@ -139,7 +143,7 @@ struct SeatGridView: View {
 
         // Escoge 15 posiciones únicas para los asientos ocupados
         var occupiedIndices = Set<Int>()
-        while occupiedIndices.count < 15 {
+        while occupiedIndices.count < 25 {
             occupiedIndices.insert(Int.random(in: 0..<flatSeats.count))
         }
 

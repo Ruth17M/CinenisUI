@@ -19,6 +19,9 @@ struct MovieView: View {
         backgroundImage: "teatro_background",
         rating: 3
     )
+    
+    let clasificacion : String
+    let colorClasificacion : Color
     @State private var isDarkImage = true
     var body: some View {
         
@@ -56,25 +59,66 @@ struct MovieView: View {
                           
                             HStack{
                                 Text(movie.title)
-                                       .font(.largeTitle)
+                                       .font(.title)
                                        .foregroundColor(.white)
                                 Spacer()
-                                
-                            Image(systemName: "clock.arrow.trianglehead.counterclockwise.rotate.90")
+
+                                Image(systemName: "clock.arrow.trianglehead.counterclockwise.rotate.90")
                                       .resizable()
                                       .frame(width: 25, height: 25)
                                       .foregroundColor(.white)
-                            Text("2h 6m")
-                                    .font(.subheadline)
-                                    .foregroundColor(.white)
-                                
-                                Text("PG-13")
+                                Text("2h 6m")
                                         .font(.subheadline)
                                         .foregroundColor(.white)
+
+                                Text(clasificacion)
+                                        .font(.system(size: 17))
+                                        .foregroundColor(Color(.white))
+                                            .fontWeight(.regular)
+                                            .frame(width: 33, height: 20)
+                                            .padding(5)
+                                            .background(Color.clear)
+                                            .overlay(
+                                                Capsule()
+                                                    .stroke(Color(colorClasificacion), lineWidth: 1)
+                                            )
                             }
-                          
-                            Spacer()
+                            // Seccion Horarios y Fecha
+                            HStack(alignment: .top) {
+                                       
+                                       // FECHA
+                                       VStack(alignment: .leading, spacing: 10) {
+                                           Text("Fecha")
+                                               .font(.system(size: 16, weight: .regular))
+                                               .foregroundColor(.white)
+
+                                           Divider().background(Color.white)
+                                           
+                                           FechaMovieView()
+                                           
+                                          // Divider().background(Color.white)
+                                       }
+                                       .frame(width: 300)
+                                       
+                                       Spacer()
+                                       
+                                       // HORARIOS
+                                       VStack(alignment: .leading, spacing: 10) {
+                                           Text("Horario")
+                                               .font(.system(size: 16, weight: .regular))
+                                               .foregroundColor(.white)
+
+                                           Divider().background(Color.white)
+                                           
+                                           HorariosView()
+                                           
+                                         //  Divider().background(Color.white)
+                                       }
+                                       .frame(width: 300)
+                                   }
+                                   .padding(.horizontal, 40)
                                
+                           
                             SeatGridView()
                         }
                         .padding(.trailing, 100)

@@ -42,7 +42,7 @@ struct MainView : View {
                     
                     MovieMainView(image: "https://image.tmdb.org/t/p/original/poUK5Gg7IkPokaBTjadzjPfJgKw.jpg", nombrePelicula: "Son Como Niños", clasificacion: "A", duracion: "110 min", categoria: "Comedia", colorCategoria:Color(red: 251/255, green: 139/255, blue: 36/255), colorClasificacion: Color(red: 204/255, green: 213/255, blue: 174/255))
                     
-                    NavigationLink("Ir a la vista de detalle movie", destination: MovieView() )
+                    NavigationLink("Ir a la vista de detalle movie", destination: MovieView(clasificacion: "R",colorClasificacion: Color(red: 255/255, green: 166/255, blue: 43/255)))
                         .buttonStyle(.borderedProminent)
                 }
                 .padding(.horizontal, 60)
