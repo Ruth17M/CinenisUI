@@ -4,7 +4,7 @@ import SwiftUI
 class SalesViewModel : ObservableObject {
     let BASE_URL = "https://seahorse-app-yy79u.ondigitalocean.app/"
     @Published var isSaleLoading = false
-    @Published var saleList [Sale] = []
+    @Published var sale: Sale 
 
     init(){
         Task {
@@ -12,18 +12,20 @@ class SalesViewModel : ObservableObject {
         }
     }
 
-    func loadSales() async {
-        let url = URL(string: "\(BASE_URL)/sales")
+    func loadSale(saleId: Int) async {
+        let url = URL(string: "\(BASE_URL)/sales?id=\(saleId)")
         do{ 
             isSaleLoading = true
             let (data, _) = try await URLSession.shared.data(from: url!)
-            let salesDecoded = try JSONDecoder().decode([Sale].self, from: data)
-            saleList = salesDecoded
+            let saleDecoded = try JSONDecoder().decode(SaleModel.self, from: data)
+            sale = saleDecoded
             isSaleLoading = false
         }
         catch{
-            print("Error cargando las ventas", error)
+            print("Error cargando la venta", error)
             isSaleLoading = false
         }
     }
+
+    
 }

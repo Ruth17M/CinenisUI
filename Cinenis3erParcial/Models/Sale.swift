@@ -1,7 +1,7 @@
 import Vapor
 import Foundation
 
-struct ResponseSaleDTO : Codable, Identifiable {
+struct Sale : Codable, Identifiable {
     var id: Int?
     var saleDate : Date
     var username : String
