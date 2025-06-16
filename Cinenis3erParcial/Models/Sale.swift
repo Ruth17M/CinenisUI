@@ -1,5 +1,7 @@
 import Vapor
 import Foundation
+import SwiftUI
+import AppKit
 
 struct Sale : Codable, Identifiable {
     var id: Int?
@@ -10,6 +12,14 @@ struct Sale : Codable, Identifiable {
     var numberOfSeats : Int
     var seatsReserved : String
     var functionID: Int
+    var qrCode: String?
+    var qrNSImage: NSImage? {
+        guard
+            let qr = qrCode,
+            let data = Data(base64Encoded: qr)
+        else { return nil }
+        return NSImage(data: data)
+    }
 
      init(saleDate: Date,
          username: String,

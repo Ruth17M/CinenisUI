@@ -1,4 +1,6 @@
 import SwiftUI
+import AppKit  
+import Foundation
 
 @MainActor
 class SalesViewModel : ObservableObject {
@@ -30,21 +32,28 @@ class SalesViewModel : ObservableObject {
     func createSale(username: String, mail: String, total: Double, numberOfSeats: Int, seatsReserved: [Seat], functionID: Int) async {
         guard let url = URL(string: "\(BASE_URL)/sales") else { return }
         await reserveSeats(seatsReserved: seatsReserved, functionID: functionID);
-        var qr = await generateQR()
+
         var seats : String = ""
         seatsReserved.forEach{seat in
             seats.append("\(seat.row)\(seat.column),")
         }
-        var body=[
+        var body =[
             dateFormatter.string(from: Date()),
             username: username,
             mail: mail,
             total: total,
             numberOfSeats: numberOfSeats,
             seatsReserved: seats,
-            qrCode: qr,
+            qrCode: nil,
             functionID: functionID
         ]
+
+        if let qrBase64 = await generateQR(from: body) {
+            body.qrCode = qrBase64
+        } else {
+            print("No se pudo generar el QR")
+        }
+
         do {
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
@@ -58,12 +67,32 @@ class SalesViewModel : ObservableObject {
     }
 
 
-    func generateQR(){
+    func generateQR(from request: Sale) async -> String? {
+        guard let jsonData = try? JSONEncoder().encode(request),
+              let jsonString = String(data: jsonData, encoding: .utf8),
+              let percentEncodedString = jsonString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        else {
+            return nil
+        }
 
+        let urlString = "https://api.qrserver.com/v1/create-qr-code/" +
+                        "?data=\(percentEncodedString)" +
+                        "&size=300x300"
+        guard let url = URL(string: urlString) else { return nil }
+
+        do {
+            let pngData = try Data(contentsOf: url)
+            return pngData.base64EncodedString()
+        } catch {
+            print("Error descargando QR: \(error)")
+            return nil
+        }
     }
 
-    func changeQRtoImage(){
 
+    func changeQRtoImage(from base64: String) -> NSImage? {
+        guard let data = Data(base64Encoded: base64) else { return nil }
+        return NSImage(data: data)
     }
     
 
