@@ -11,54 +11,145 @@ import SwiftUI
 struct MovieView: View {
     //Objeto Pelicula para prueba de MovieView
     let movie = Movie(
-          title: "IRON MAN",
-          director: "John Favreau",
-          actors: "Downey JR, Howard, Bridges",
-          description: "Iron Man posee una armadura motorizada que le brinda fuerza y resistencia sobrehumanas",
-          posterImage: "ironman_poster",
-          backgroundImage: "ironman_background",
-          rating: 5
-      )
+        title: "IRON MAN",
+        director: "John Favreau",
+        actors: "Downey JR, Howard, Bridges",
+        description: "Iron Man posee una armadura motorizada que le brinda fuerza y resistencia sobrehumanas",
+        posterImage: "ironman_poster",
+        backgroundImage: "teatro_background",
+        rating: 3
+    )
+    
+    let clasificacion : String
+    let colorClasificacion : Color
+    @State private var isDarkImage = true
+    
     var body: some View {
-        ZStack {
-                   Image(movie.backgroundImage)
-                       .resizable()
-                       .scaledToFill()
-                       .overlay(LinearGradient(
-                           gradient: Gradient(colors: [.black.opacity(0.8), .black]),
-                           startPoint: .top,
-                           endPoint: .bottom)
-                       )
-                       .edgesIgnoringSafeArea(.all)
+    
+        ScrollView {
+            
+            
+            ZStack(alignment: .topLeading){
+                
+                // Fondo con gradiente
+                Image(movie.backgroundImage)
+                    .resizable()
+                    .scaledToFill()
+                    .overlay(LinearGradient(
+                        gradient: Gradient(colors: [.black.opacity(0.8), .black]),
+                        startPoint: .top,
+                        endPoint: .bottom)
+                    )
+                    .edgesIgnoringSafeArea(.all)
+                
+             
+                //Detalles y asientos
+                HStack{
+                    
+                    //Recuadro Detalles View
+                    DetallesMovieView(movie: movie)
+                        .frame(width: 400)
+                        .padding(.leading, 150) //padding pelicula
+                        .padding(.top, 40) //padding pelicula
+                    
+                    
+                    
+                    //Parte derecha de interfaz
+       
+                        VStack(alignment: .leading, spacing: 20){
+                          
+                            HStack{
+                                Text(movie.title)
+                                       .font(.title)
+                                       .foregroundColor(.white)
+                                Spacer()
 
-                   // Contenido principal
-                   HStack(spacing: 0) {
-                       DetallesMovieView(movie: movie)
-                           .frame(width: 300)
-                           .background(Color.black)
+                                Image(systemName: "clock.arrow.trianglehead.counterclockwise.rotate.90")
+                                      .resizable()
+                                      .frame(width: 25, height: 25)
+                                      .foregroundColor(.white)
+                                Text("2h 6m")
+                                        .font(.subheadline)
+                                        .foregroundColor(.white)
 
-                       Divider()
+                                Text(clasificacion)
+                                        .font(.system(size: 17))
+                                        .foregroundColor(Color(.white))
+                                            .fontWeight(.regular)
+                                            .frame(width: 33, height: 20)
+                                            .padding(5)
+                                            .background(Color.clear)
+                                            .overlay(
+                                                Capsule()
+                                                    .stroke(Color(colorClasificacion), lineWidth: 1)
+                                            )
+                            }
+                            // Seccion Horarios y Fecha
+                            HStack(alignment: .top) {
+                                       
+                                       // FECHA
+                                       VStack(alignment: .leading, spacing: 10) {
+                                           Text("Fecha")
+                                               .font(.system(size: 16, weight: .regular))
+                                               .foregroundColor(.white)
 
-                       VStack {
-                           Text(movie.title)
-                               .font(.largeTitle)
-                               .foregroundColor(.white)
-                               .padding(.top)
+                                           Divider().background(Color.white)
+                                           
+                                           FechaMovieView()
+                                           
+                                          // Divider().background(Color.white)
+                                       }
+                                       .frame(width: 300)
+                                       
+                                       Spacer()
+                                       
+                                       // HORARIOS
+                                       VStack(alignment: .leading, spacing: 10) {
+                                           Text("Horario")
+                                               .font(.system(size: 16, weight: .regular))
+                                               .foregroundColor(.white)
 
-                           SeatGridView()
-                       }
-                       .padding()
-                   }
-
-                   // MenuBar 
-                   MenuBar(isDarkImage: isDarkImage)
-                       .padding(.top, 5)
-                       .zIndex(1)
-                       .frame(maxWidth: .infinity, alignment: .top)
+                                           Divider().background(Color.white)
+                                           
+                                           HorariosView()
+                                           
+                                         //  Divider().background(Color.white)
+                                       }
+                                       .frame(width: 300)
+                                   }
+                                   .padding(.horizontal, 40)
+                               
+                           
+                            SeatGridView()
+                        }
+                        .padding(.trailing, 100)
+                        .padding(.top,200)
+                     }
+                    
+                    // MenuBar
+                    MenuBar(isDarkImage: isDarkImage)
+                        .padding(.top, 5)
+                        .zIndex(1)
+                        .frame(maxWidth: .infinity, alignment: .top)
+                 
+                
+                HStack{
+                    NavigationLink(destination: BoletoView()) {
+                                               Image(systemName: "arrow.left.circle.fill")
+                                                   .resizable()
+                                                   .frame(width: 40, height: 40)
+                                                   .foregroundColor(.yellow)
+                                                   .padding()
+                                           }
+                }
+                }
             }
+            
+            
+            
         }
     }
-    }
+    
 
 
 

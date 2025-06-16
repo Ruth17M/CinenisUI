@@ -11,33 +11,38 @@ struct DetallesMovieView: View {
     let movie: MovieModel
     
     var body: some View {
-        VStack(alignment: .leading) {
-            AsyncImage(url: URL(string: movie.image))
-            {image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: 300)
-            }placeholder: {
-                Color.gray
-            }
-                
+        VStack(spacing: 0) {
             
-            Text("Actores").bold()
-            Text(movie.genre)
+            // Imagen arriba, ocupando todo el ancho del recuadro
+            Image(movie.posterImage)
+                .resizable()
+                .frame(maxWidth: 350, maxHeight: 410)
             
-            Text("Descripción").bold()
-            Text(movie.description)
-            
-            HStack {
-                ForEach(0..<movie.stars, id: \.self) { _ in
-                    Image(systemName: "star.fill")
-                        .foregroundColor(.yellow)
+            // Recuadro con la información
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Director").bold()
+                Text(movie.director)
+
+                Text("Actores").bold()
+                Text(movie.actors)
+
+                Text("Descripción").bold()
+                Text(movie.description)
+
+                HStack {
+                    ForEach(0..<movie.rating, id: \.self) { _ in
+                        Image(systemName: "star.fill")
+                            .foregroundColor(.yellow)
+                    }
                 }
             }
+            .padding()
+            .foregroundColor(.white)
+            .background(Color("ColorGris"))
         }
-        .padding()
-        .foregroundColor(.white)
-        .background(Color.black)    }
+       // .cornerRadius(10)
+        .shadow(radius: 5)
+
+            }
 }
 
