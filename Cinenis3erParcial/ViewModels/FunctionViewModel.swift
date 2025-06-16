@@ -9,17 +9,17 @@ class FunctionViewModel : ObservableObject {
     @Published var isBoardLoading = false 
     @Published var movieList: [Movie] = []
     @Published var areSeatsLoading = false 
-    @Published var functionSeats: Function
     @Published var seats: [[Seat]] = []
 
     init() {
         Task{
-            loadBoard(date: Date(), genre: "any", premiere: false)
+            
         }
     }
 
 
     func loadBoard(date: Date, genre: String, premiere: Bool) async {
+        //obtener las peliculas que tienen funcion segun los parametros
         guard let url = URL(string: "\(BASE_URL)/function/moviesFiltered") else { return }
         let calendar = Calendar.current
         guard let mexicoCityTimeZone = TimeZone(identifier: "America/Mexico_City") else {
@@ -41,7 +41,7 @@ class FunctionViewModel : ObservableObject {
         ]
 
         do {
-            isFunctionLoading = true
+            areFunctionLoading = true
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -58,7 +58,8 @@ class FunctionViewModel : ObservableObject {
 
         
     }
-    func loadFunctionsByMovie(movieID: Int, date: Date){
+    func loadFunctionsByMovie(movieID: Int, date: Date) async{
+        //Obtener las funciones de la pelicula por dia e id de la pelicula
         guard let url = URL(string: "\(BASE_URL)/function/movieFunctions") else { return }
         let calendar = Calendar.current
         guard let mexicoCityTimeZone = TimeZone(identifier: "America/Mexico_City") else {
@@ -87,7 +88,7 @@ class FunctionViewModel : ObservableObject {
             request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
 
             let (data, _) = try await URLSession.shared.data(for: request)
-            let functionsDecoded = try JSONDecoder().decode([Movie].self, from: data)
+            let functionsDecoded = try JSONDecoder().decode([Function].self, from: data)
             functionList = moviesDecoded
             areFunctionsLoading = false
         } catch {
@@ -96,19 +97,19 @@ class FunctionViewModel : ObservableObject {
         }
     }
 
-    func loadSeats(functionID: Int){
-        let url = URL(string: "\(BASE_URL)/functions?byId=\(functionId)")
+    func loadSeats(functionID: Int) async{
+        let url = URL(string: "\(BASE_URL)/functions?byId=\(functionID)")
         do{ 
             areSeatsLoading = true
             let (data, _) = try await URLSession.shared.data(from: url!)
-            let functionDecode = try JSONDecoder().decode(FunctionModel.self, from: data)
-            functionSeats = functionDecoded
-            createArraySeats(availabityString: functionSeats.availability)
+            let functionDecode = try JSONDecoder().decode(Function.self, from: data)
+            var availability = functionDecode.availability
+            createArraySeats(availabityString: availability)
             areSeatsLoading = false
         }
         catch{
             print("Error cargando la venta", error)
-            isSaleLoading = false
+            areSeatsLoading = false
         }
     }
 
@@ -120,11 +121,35 @@ class FunctionViewModel : ObservableObject {
             for j in 1...10 {
                 let actualRow = rows[i]
                 let seatId = "\(actualRow)\(j)"
-                let isAvailable = !takeSet.contains(seatId)
-                let newSeat = Seat(row: ctualRow, column: j, available: isAvailable)
+                let isAvailable = !takenSet.contains(seatId)
+                let newSeat = Seat(row: actualRow, column: j, available: isAvailable)
                 seatRow.append(newSeat)
             }
             seats.append(seatRow)
+        }
+    }
+
+    func reserveSeats(seatsReserved: [Seat], functionID: Int) async {
+        guard let url = URL(string: "\(BASE_URL)/function/updateAvailability") else { return }
+        var availability : String = ""
+        seatsReserved.forEach{ seat in
+            availability.append("\(seat.row)\(seat.column),")
+        }
+        let body: [String: Any] = [
+            "id": functionID,
+            "availability": availability
+        ]
+        do {
+            var request = URLRequest(url: url)
+            request.httpMethod = "PUT"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
+            
+            let (data, response) = try await URLSession.shared.data(for: request)
+            // Maneja la respuesta aquí si lo necesitas
+            print("Respuesta:", response)
+        } catch {
+            print("Error reservando asientos:", error)
         }
     }
 }

@@ -7,11 +7,13 @@ struct Function : Codable, Identifiable{
     let availability: String
     let movie: Movie 
 
-    init(function: Function) throws {
-        self.id = function.id
-        self.functionDate = function.functionDate
-        self.room = function.room
-        self.availability = function.availability
-        self.movie = function.movie
+    init(functionDate: Date,
+         room: Int,
+         availability: String,
+         movie: Movie) {
+        self.functionDate = functionDate
+        self.room = room
+        self.availability = availability
+        self.movie = movie
     }
 }

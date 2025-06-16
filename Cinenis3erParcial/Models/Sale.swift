@@ -11,15 +11,20 @@ struct Sale : Codable, Identifiable {
     var seatsReserved : String
     var functionID: Int
 
-    init(sale: Sale) throws {
-        self.id = sale.id
-        self.saleDate = sale.saleDate
-        self.username = sale.username
-        self.mail = sale.mail
-        self.total = sale.total
-        self.numberOfSeats = sale.numberOfSeats
-        self.seatsReserved = sale.seatsReserved
-        self.functionID = sale.$function.id
+     init(saleDate: Date,
+         username: String,
+         mail: String,
+         total: Double,
+         numberOfSeats: Int,
+         seatsReserved: String,
+         functionID: Int) {
+        self.saleDate = saleDate
+        self.username = username
+        self.mail = mail
+        self.total = total
+        self.numberOfSeats = numberOfSeats
+        self.seatsReserved = seatsReserved
+        self.functionID = functionID
     }
 
 }
