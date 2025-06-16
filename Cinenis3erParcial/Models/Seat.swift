@@ -6,6 +6,11 @@
 //
 
 import SwiftUI
+enum SeatStatus {
+    case available   // Verde
+    case occupied    // Gris u oscuro
+    case selected    // Amarillo u otro color
+}
 
 
 struct Seat: Identifiable {
@@ -17,10 +22,4 @@ struct Seat: Identifiable {
     var seatLabel: String {
         return "\(row)\(number)"
     }
-}
-
-enum SeatStatus {
-    case available
-    case selected
-    case occupied
 }

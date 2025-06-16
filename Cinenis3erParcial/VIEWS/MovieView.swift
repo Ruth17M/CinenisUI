@@ -23,8 +23,9 @@ struct MovieView: View {
     let clasificacion : String
     let colorClasificacion : Color
     @State private var isDarkImage = true
+    
     var body: some View {
-        
+    
         ScrollView {
             
             
@@ -130,7 +131,17 @@ struct MovieView: View {
                         .padding(.top, 5)
                         .zIndex(1)
                         .frame(maxWidth: .infinity, alignment: .top)
-                    
+                 
+                
+                HStack{
+                    NavigationLink(destination: BoletoView()) {
+                                               Image(systemName: "arrow.left.circle.fill")
+                                                   .resizable()
+                                                   .frame(width: 40, height: 40)
+                                                   .foregroundColor(.yellow)
+                                                   .padding()
+                                           }
+                }
                 }
             }
             

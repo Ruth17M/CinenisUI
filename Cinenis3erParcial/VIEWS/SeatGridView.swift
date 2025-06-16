@@ -42,7 +42,7 @@ struct SeatGridView: View {
             
             //números de columna
             HStack(spacing: 10)  {
-                Text(" ") // espacio en blanco para alineación
+                Text("   ") // espacio en blanco para alineación
                     .frame(width: 30)
 
                 ForEach(columns, id: \.self) { number in
@@ -99,7 +99,7 @@ struct SeatGridView: View {
                 VStack(spacing: 8) {
                     Image(systemName: "carseat.left.fill")
                         .font(.system(size: 30))
-                        .foregroundColor(.red)
+                        .foregroundColor(.gray)
                     Text("Ocupado")
                         .foregroundColor(.white)
                         .font(.caption)
@@ -160,7 +160,7 @@ struct SeatGridView: View {
             }
         }
 
-        // Reconstruir matriz
+        //  matriz
         var reshaped: [[Seat]] = []
         var index = 0
         for _ in rows {
