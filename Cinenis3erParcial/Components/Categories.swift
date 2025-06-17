@@ -39,6 +39,7 @@ struct Categories: View {
     let category: String
     let videoName: String
     @StateObject var functionViewModel = FunctionViewModel()
+    @Binding var movies : [Movie]
 
     var body: some View {
         ZStack {
@@ -55,8 +56,8 @@ struct Categories: View {
         .buttonStyle(PlainButtonStyle())
         .onTapGesture {
             Task{
-                var todayDate : Date = Date()
-                await functionViewModel.loadBoard(date: todayDate, genre: category, premiere: false)
+                categoriaSeleccionada = category
+                movies = await functionViewModel.loadBoard(date: fechaSeleccionada, genre: category, premiere: false)
             }
         }
     }

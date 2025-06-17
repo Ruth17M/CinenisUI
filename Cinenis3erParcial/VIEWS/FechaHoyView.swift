@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FechaHoyView: View {
+    @Binding var movies : [Movie]
+    @StateObject var functionViewModel = FunctionViewModel()
     let calendar = Calendar(identifier: .gregorian)
     let diasSemana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
     let hoy = Date()
@@ -40,7 +42,8 @@ struct FechaHoyView: View {
                     let estilo = estiloPara(fecha: fecha)
                     Button {
                         Task{
-                            fechaSeleccionada = fecha
+                            fechaSeleccionada = fecha 
+                            movies = await functionViewModel.loadBoard(date: fechaSeleccionada, genre: categoriaSeleccionada, premiere: false)
                         }
                     } label: {
                         Text("\(numero)")

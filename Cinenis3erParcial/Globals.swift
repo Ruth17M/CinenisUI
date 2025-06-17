@@ -10,5 +10,5 @@ import Foundation
 var fechaSeleccionada : Date = Date()
 
 var selectedMovieID : Int?
-
+var categoriaSeleccionada : String = "any"
 
