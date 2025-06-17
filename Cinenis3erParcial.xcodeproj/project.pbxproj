@@ -12,7 +12,6 @@
 		9E3AD4202DFCD8ED00A37725 /* video_romance.mov in Resources */ = {isa = PBXBuildFile; fileRef = 9E3AD41F2DFCD8ED00A37725 /* video_romance.mov */; };
 		9E3AD4222DFCD8F600A37725 /* video_terror.mov in Resources */ = {isa = PBXBuildFile; fileRef = 9E3AD4212DFCD8F600A37725 /* video_terror.mov */; };
 		9E3AD4242DFCDB4C00A37725 /* video_infantil.mov in Resources */ = {isa = PBXBuildFile; fileRef = 9E3AD4232DFCDB4C00A37725 /* video_infantil.mov */; };
-		9E3AD4262DFCDCB400A37725 /* FechaHoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3AD4252DFCDCA500A37725 /* FechaHoyView.swift */; };
 		9E699B682DFA376C00918CE0 /* DetallesMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B672DFA375A00918CE0 /* DetallesMovieView.swift */; };
 		9E699B6A2DFA3A5600918CE0 /* CarouselMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B692DFA3A4200918CE0 /* CarouselMainView.swift */; };
 		9E699B6C2DFB3A2800918CE0 /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E699B6B2DFB3A2000918CE0 /* NSImage.swift */; };
@@ -24,19 +23,22 @@
 		9E7301572DFF668D00BA9B7C /* HorariosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7301562DFF668900BA9B7C /* HorariosView.swift */; };
 		9E7301592DFF76CA00BA9B7C /* BoletoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7301582DFF76C700BA9B7C /* BoletoView.swift */; };
 		9EB59BF52DFDE1B900F61449 /* MovieMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB59BF42DFDE1B000F61449 /* MovieMainView.swift */; };
-		9EB59BF92DFDE47C00F61449 /* Horarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB59BF82DFDE47300F61449 /* Horarios.swift */; };
 		9EE017202DF9FC2B00F99331 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0171F2DF9FC2700F99331 /* MovieView.swift */; };
-		9EE017232DF9FD0B00F99331 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE017222DF9FD0900F99331 /* Movie.swift */; };
-		9EE017252DF9FD1000F99331 /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE017242DF9FD0D00F99331 /* Seat.swift */; };
 		9EF45B592DFD4F8D0013C9BE /* teatro_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9EF45B582DFD4F8D0013C9BE /* teatro_background.jpg */; };
+		CB390FC02E007F8B0054DD07 /* SalesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390FBE2E007F8B0054DD07 /* SalesViewModel.swift */; };
+		CB390FC12E007F8B0054DD07 /* FunctionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390FBC2E007F8B0054DD07 /* FunctionViewModel.swift */; };
+		CB390FC22E007F8B0054DD07 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390FBD2E007F8B0054DD07 /* MovieViewModel.swift */; };
+		CB390FC92E007F9C0054DD07 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390FC52E007F9C0054DD07 /* Sale.swift */; };
+		CB390FCA2E007F9C0054DD07 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390FC32E007F9C0054DD07 /* Function.swift */; };
+		CB390FCB2E007F9C0054DD07 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390FC42E007F9C0054DD07 /* Movie.swift */; };
+		CB390FCF2E0081410054DD07 /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390FCE2E00813C0054DD07 /* Seat.swift */; };
+		CB390FD12E00833E0054DD07 /* FechaHoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390FD02E00833E0054DD07 /* FechaHoyView.swift */; };
+		CB390FD52E008FC70054DD07 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB390FD42E008FC40054DD07 /* Globals.swift */; };
 		CB6AE15B2DF8C16A0015BACA /* Cinenis3erParcialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6AE15A2DF8C16A0015BACA /* Cinenis3erParcialApp.swift */; };
 		CB6AE15D2DF8C16A0015BACA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6AE15C2DF8C16A0015BACA /* ContentView.swift */; };
 		CB6AE15F2DF8C16C0015BACA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB6AE15E2DF8C16C0015BACA /* Assets.xcassets */; };
 		CB6AE1622DF8C16C0015BACA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB6AE1612DF8C16C0015BACA /* Preview Assets.xcassets */; };
 		CB6AE16A2DF8C2E50015BACA /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6AE1692DF8C2E50015BACA /* MenuBar.swift */; };
-		CB7CF5432DFB86E300AE8469 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CF5422DFB86E300AE8469 /* MovieModel.swift */; };
-		CB7CF5452DFB87E100AE8469 /* SaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CF5442DFB87E100AE8469 /* SaleModel.swift */; };
-		CB7CF5472DFB885A00AE8469 /* FunctionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7CF5462DFB885A00AE8469 /* FunctionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +47,6 @@
 		9E3AD41F2DFCD8ED00A37725 /* video_romance.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video_romance.mov; sourceTree = "<group>"; };
 		9E3AD4212DFCD8F600A37725 /* video_terror.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video_terror.mov; sourceTree = "<group>"; };
 		9E3AD4232DFCDB4C00A37725 /* video_infantil.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video_infantil.mov; sourceTree = "<group>"; };
-		9E3AD4252DFCDCA500A37725 /* FechaHoyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FechaHoyView.swift; sourceTree = "<group>"; };
 		9E699B672DFA375A00918CE0 /* DetallesMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetallesMovieView.swift; sourceTree = "<group>"; };
 		9E699B692DFA3A4200918CE0 /* CarouselMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselMainView.swift; sourceTree = "<group>"; };
 		9E699B6B2DFB3A2000918CE0 /* NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
@@ -59,10 +60,17 @@
 		9EB59BF42DFDE1B000F61449 /* MovieMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMainView.swift; sourceTree = "<group>"; };
 		9EB59BF82DFDE47300F61449 /* Horarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Horarios.swift; sourceTree = "<group>"; };
 		9EE0171F2DF9FC2700F99331 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
-		9EE017222DF9FD0900F99331 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		9EE017242DF9FD0D00F99331 /* Seat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
 		9EF45B582DFD4F8D0013C9BE /* teatro_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = teatro_background.jpg; sourceTree = "<group>"; };
 		9EF45B5E2DFD599D0013C9BE /* asientosprueba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asientosprueba.swift; sourceTree = "<group>"; };
+		CB390FBC2E007F8B0054DD07 /* FunctionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionViewModel.swift; sourceTree = "<group>"; };
+		CB390FBD2E007F8B0054DD07 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		CB390FBE2E007F8B0054DD07 /* SalesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesViewModel.swift; sourceTree = "<group>"; };
+		CB390FC32E007F9C0054DD07 /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
+		CB390FC42E007F9C0054DD07 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		CB390FC52E007F9C0054DD07 /* Sale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sale.swift; sourceTree = "<group>"; };
+		CB390FCE2E00813C0054DD07 /* Seat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
+		CB390FD02E00833E0054DD07 /* FechaHoyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FechaHoyView.swift; sourceTree = "<group>"; };
+		CB390FD42E008FC40054DD07 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		CB6AE1572DF8C16A0015BACA /* Cinenis3erParcial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinenis3erParcial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB6AE15A2DF8C16A0015BACA /* Cinenis3erParcialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cinenis3erParcialApp.swift; sourceTree = "<group>"; };
 		CB6AE15C2DF8C16A0015BACA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,9 +78,6 @@
 		CB6AE1612DF8C16C0015BACA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB6AE1632DF8C16C0015BACA /* Cinenis3erParcial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cinenis3erParcial.entitlements; sourceTree = "<group>"; };
 		CB6AE1692DF8C2E50015BACA /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
-		CB7CF5422DFB86E300AE8469 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
-		CB7CF5442DFB87E100AE8469 /* SaleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleModel.swift; sourceTree = "<group>"; };
-		CB7CF5462DFB885A00AE8469 /* FunctionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,24 +101,36 @@
 				9E699B8A2DFC779B00918CE0 /* SeatView.swift */,
 				9E699B882DFC778800918CE0 /* SeatGridView.swift */,
 				9E699B6D2DFB50A900918CE0 /* MainView.swift */,
+				CB390FD02E00833E0054DD07 /* FechaHoyView.swift */,
 				9E699B692DFA3A4200918CE0 /* CarouselMainView.swift */,
 				9E699B6B2DFB3A2000918CE0 /* NSImage.swift */,
 				9E699B672DFA375A00918CE0 /* DetallesMovieView.swift */,
 				9EE0171F2DF9FC2700F99331 /* MovieView.swift */,
 				9EF45B5E2DFD599D0013C9BE /* asientosprueba.swift */,
-				9E3AD4252DFCDCA500A37725 /* FechaHoyView.swift */,
+				9EB59BF82DFDE47300F61449 /* Horarios.swift */,
 			);
 			path = VIEWS;
 			sourceTree = "<group>";
 		};
-		9EE017212DF9FD0300F99331 /* Models */ = {
+		CB390FBF2E007F8B0054DD07 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				CB7CF5422DFB86E300AE8469 /* MovieModel.swift */,
-				CB7CF5442DFB87E100AE8469 /* SaleModel.swift */,
-				CB7CF5462DFB885A00AE8469 /* FunctionModel.swift */,
+				CB390FBC2E007F8B0054DD07 /* FunctionViewModel.swift */,
+				CB390FBD2E007F8B0054DD07 /* MovieViewModel.swift */,
+				CB390FBE2E007F8B0054DD07 /* SalesViewModel.swift */,
 			);
-			path = Models;
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CB390FC72E007F9C0054DD07 /* Models 2 */ = {
+			isa = PBXGroup;
+			children = (
+				CB390FCE2E00813C0054DD07 /* Seat.swift */,
+				CB390FC32E007F9C0054DD07 /* Function.swift */,
+				CB390FC42E007F9C0054DD07 /* Movie.swift */,
+				CB390FC52E007F9C0054DD07 /* Sale.swift */,
+			);
+			path = "Models 2";
 			sourceTree = "<group>";
 		};
 		CB6AE14E2DF8C16A0015BACA = {
@@ -135,18 +152,18 @@
 		CB6AE1592DF8C16A0015BACA /* Cinenis3erParcial */ = {
 			isa = PBXGroup;
 			children = (
-				9E3AD4252DFCDCA500A37725 /* FechaHoyView.swift */,
-				9EB59BF82DFDE47300F61449 /* Horarios.swift */,
+				CB390FD42E008FC40054DD07 /* Globals.swift */,
 				CB7CF5412DFB85F900AE8469 /* Components */,
-				9EE017212DF9FD0300F99331 /* Models */,
 				9EE0171E2DF9FC2200F99331 /* VIEWS */,
 				CB6AE1692DF8C2E50015BACA /* MenuBar.swift */,
 				CB6AE15A2DF8C16A0015BACA /* Cinenis3erParcialApp.swift */,
 				CB6AE15C2DF8C16A0015BACA /* ContentView.swift */,
+				CB390FBF2E007F8B0054DD07 /* ViewModels */,
 				CB6AE15E2DF8C16C0015BACA /* Assets.xcassets */,
 				9EF45B582DFD4F8D0013C9BE /* teatro_background.jpg */,
 				CB6AE1632DF8C16C0015BACA /* Cinenis3erParcial.entitlements */,
 				CB6AE1602DF8C16C0015BACA /* Preview Content */,
+				CB390FC72E007F9C0054DD07 /* Models 2 */,
 			);
 			path = Cinenis3erParcial;
 			sourceTree = "<group>";
@@ -168,8 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				9E699B6F2DFB512400918CE0 /* Categories.swift */,
-				9EE017242DF9FD0D00F99331 /* Seat.swift */,
-				9EE017222DF9FD0900F99331 /* Movie.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -252,24 +267,28 @@
 			files = (
 				CB6AE15D2DF8C16A0015BACA /* ContentView.swift in Sources */,
 				9EE017202DF9FC2B00F99331 /* MovieView.swift in Sources */,
+				CB390FCF2E0081410054DD07 /* Seat.swift in Sources */,
 				9E699B6A2DFA3A5600918CE0 /* CarouselMainView.swift in Sources */,
-				9E3AD4262DFCDCB400A37725 /* FechaHoyView.swift in Sources */,
+				CB390FD12E00833E0054DD07 /* FechaHoyView.swift in Sources */,
 				9E699B6E2DFB50B000918CE0 /* MainView.swift in Sources */,
-				CB7CF5472DFB885A00AE8469 /* FunctionModel.swift in Sources */,
-				9EE017252DF9FD1000F99331 /* Seat.swift in Sources */,
 				9E699B6C2DFB3A2800918CE0 /* NSImage.swift in Sources */,
 				9E699B702DFB513200918CE0 /* Categories.swift in Sources */,
+				CB390FC92E007F9C0054DD07 /* Sale.swift in Sources */,
+				CB390FCA2E007F9C0054DD07 /* Function.swift in Sources */,
+				CB390FCB2E007F9C0054DD07 /* Movie.swift in Sources */,
 				9E7301572DFF668D00BA9B7C /* HorariosView.swift in Sources */,
 				9E699B892DFC778E00918CE0 /* SeatGridView.swift in Sources */,
+				CB390FD52E008FC70054DD07 /* Globals.swift in Sources */,
 				9E7301592DFF76CA00BA9B7C /* BoletoView.swift in Sources */,
 				9E7301552DFF5F5B00BA9B7C /* FechaMovieView.swift in Sources */,
 				9EB59BF52DFDE1B900F61449 /* MovieMainView.swift in Sources */,
 				CB6AE15B2DF8C16A0015BACA /* Cinenis3erParcialApp.swift in Sources */,
 				9E699B682DFA376C00918CE0 /* DetallesMovieView.swift in Sources */,
-				CB7CF5452DFB87E100AE8469 /* SaleModel.swift in Sources */,
 				CB6AE16A2DF8C2E50015BACA /* MenuBar.swift in Sources */,
 				9E699B8B2DFC779E00918CE0 /* SeatView.swift in Sources */,
-				9EE017232DF9FD0B00F99331 /* Movie.swift in Sources */,
+				CB390FC02E007F8B0054DD07 /* SalesViewModel.swift in Sources */,
+				CB390FC12E007F8B0054DD07 /* FunctionViewModel.swift in Sources */,
+				CB390FC22E007F8B0054DD07 /* MovieViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

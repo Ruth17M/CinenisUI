@@ -3,13 +3,13 @@ import SwiftUI
 @MainActor
 class MovieViewModel : ObservableObject {
 
-    let BASE_URL = "https://seahorse-app-yy79u.ondigitalocean.app/"
-    @Published var isMovieLoading = false 
+    let BASE_URL = "https://orca-app-dk9lb.ondigitalocean.app"
+    @Published var isMovieLoading = false
     @Published var movieList: [Movie] = []
 
     init() {
         Task{
-            loadMovies()
+            await loadMovies()
         }
     }
 

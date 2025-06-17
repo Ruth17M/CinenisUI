@@ -23,22 +23,27 @@ struct FechaMovieView: View {
                 let numero = calendar.component(.day, from: fecha)
                 let estilo = estiloPara(fecha: fecha)
               
+                Button {
+                    fechaSeleccionada = fecha
+                } label: {
+                    VStack(spacing: 4) {
+                        Text(dia)
+                            .font(.caption)
+                            .foregroundColor(.white)
+                            .font(.system(size: 20, weight: .light))
+                        Text("\(numero)")
+                            .font(.subheadline)
+                            .fontWeight(estilo.esHoy ? .bold : .regular)
+                            .foregroundColor(estilo.esPasado ? .gray : .white)
+                            .frame(width: 28, height: 28)
+                            .background(estilo.esHoy ? Color("ColorAmarillo") : Color.clear)
+                            .clipShape(Circle())
+                            .font(.system(size: 15, weight: .light))
+                    }
+                }.buttonStyle(PlainButtonStyle())
+
                 
                 
-                VStack(spacing: 4) {
-                    Text(dia)
-                        .font(.caption)
-                        .foregroundColor(.white)
-                        .font(.system(size: 20, weight: .light))
-                    Text("\(numero)")
-                        .font(.subheadline)
-                        .fontWeight(estilo.esHoy ? .bold : .regular)
-                        .foregroundColor(estilo.esPasado ? .gray : .white)
-                        .frame(width: 28, height: 28)
-                        .background(estilo.esHoy ? Color("ColorAmarillo") : Color.clear)
-                        .clipShape(Circle())
-                        .font(.system(size: 15, weight: .light))
-                }
                 
             }
         }

@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct DetallesMovieView: View {
-    let movie: MovieModel
+    let movie: Movie
     
     var body: some View {
         VStack(spacing: 0) {
             
             // Imagen arriba, ocupando todo el ancho del recuadro
-            Image(movie.posterImage)
+            Image(movie.image)
                 .resizable()
                 .frame(maxWidth: 350, maxHeight: 410)
             
@@ -30,7 +30,7 @@ struct DetallesMovieView: View {
                 Text(movie.description)
 
                 HStack {
-                    ForEach(0..<movie.rating, id: \.self) { _ in
+                    ForEach(0..<movie.stars, id: \.self) { _ in
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
                     }

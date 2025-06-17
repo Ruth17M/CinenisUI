@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct MovieMainView: View {
+    let movieID : Int
     let image : String
     let nombrePelicula : String
     let clasificacion : String
-    let duracion : String
+    let duracion : Int
     let categoria : String
-    let colorCategoria : Color
-    let colorClasificacion : Color
+    @StateObject var functionViewModel = FunctionViewModel()
+    @State var funciones : [Function] = []
+    
+    
+    
     var body: some View {
+        
         HStack(spacing: 25){
             AsyncImage(url: URL(string: image)) { image in
                 image
@@ -39,7 +44,7 @@ struct MovieMainView: View {
                         .fontWeight(.regular)
                         .frame(width: 33, height: 20)
                         .padding(5)
-                        .background(Color(colorClasificacion))
+                        //.background(Color(colorClasificacion))
                         .clipShape(Capsule())
                         
                     
@@ -50,7 +55,7 @@ struct MovieMainView: View {
                         .font(.system(size: 20))
                         .padding(0)
                     
-                    Text(duracion)
+                    Text(String(duracion))
                         .font(.system(size: 20))
                         .fontWeight(.light)
                 }
@@ -60,7 +65,7 @@ struct MovieMainView: View {
                     .fontWeight(.light)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 5)
-                    .background(Color(colorCategoria))
+                    //.background(Color(colorCategoria))
                     .clipShape(Capsule())
                 
                 Spacer()
@@ -68,21 +73,18 @@ struct MovieMainView: View {
                 Text("Funciones")
                     .font(.system(size: 20))
                     .fontWeight(.light)
-                
+
                 HStack(spacing:23){
-                    Horarios(hora: "12:00")
-                    Horarios(hora: "12:10")
-                    Horarios(hora: "13:00")
-                    Horarios(hora: "13:30")
-                    Horarios(hora: "15:45")
-                    Horarios(hora: "17:20")
-                    Horarios(hora: "17:40")
-                    Horarios(hora: "17:20")
-                    Horarios(hora: "17:40")
+                    HorariosView(funciones: funciones)
                 }
 
             }
             .padding(.vertical, 15)
+            .onAppear{
+                Task{
+                    funciones = await functionViewModel.loadFunctionsByMovie(movieID: movieID, date: fechaSeleccionada)
+                }
+            }
             
         }
         .padding(.vertical, 20)

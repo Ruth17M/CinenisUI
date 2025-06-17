@@ -9,20 +9,35 @@
 import SwiftUI
 
 struct MovieView: View {
-    //Objeto Pelicula para prueba de MovieView
-    let movie = Movie(
-        title: "IRON MAN",
-        director: "John Favreau",
-        actors: "Downey JR, Howard, Bridges",
-        description: "Iron Man posee una armadura motorizada que le brinda fuerza y resistencia sobrehumanas",
-        posterImage: "ironman_poster",
-        backgroundImage: "teatro_background",
-        rating: 3
-    )
-    
-    let clasificacion : String
-    let colorClasificacion : Color
+    var function : Function
+    @StateObject var functionViewModel = FunctionViewModel()
+    @State var movie : Movie
+    @State var funciones : [Function]
+    @State var funcionSeleccionada : Function
+    var classification: String {
+            movie.classification
+    }
+
+    var colorClasificacion: Color {
+            switch movie.classification {
+            case "A": return .green
+            case "B": return .blue
+            case "C": return .red
+            case "R": return Color(red: 255/255, green: 166/255, blue: 43/255)
+            default: return .gray
+            }
+    }
+
     @State private var isDarkImage = true
+
+        // Initialize movie within the custom initializer
+    init(function: Function) {
+            self.function = function // First, initialize the 'function' property
+            self._movie = State(initialValue: function.movie) // Then, initialize the @State 'movie'
+            self.funcionSeleccionada = function
+            self.funciones = []
+    }
+
     
     var body: some View {
     
@@ -32,7 +47,8 @@ struct MovieView: View {
             ZStack(alignment: .topLeading){
                 
                 // Fondo con gradiente
-                Image(movie.backgroundImage)
+                //Cambiar a imagen estatica
+                /*Image(nmovie.backgroundImage)
                     .resizable()
                     .scaledToFill()
                     .overlay(LinearGradient(
@@ -41,7 +57,7 @@ struct MovieView: View {
                         endPoint: .bottom)
                     )
                     .edgesIgnoringSafeArea(.all)
-                
+                */
              
                 //Detalles y asientos
                 HStack{
@@ -68,11 +84,11 @@ struct MovieView: View {
                                       .resizable()
                                       .frame(width: 25, height: 25)
                                       .foregroundColor(.white)
-                                Text("2h 6m")
+                                Text("\(movie.duration)")
                                         .font(.subheadline)
                                         .foregroundColor(.white)
 
-                                Text(clasificacion)
+                                Text(movie.classification)
                                         .font(.system(size: 17))
                                         .foregroundColor(Color(.white))
                                             .fontWeight(.regular)
@@ -111,7 +127,7 @@ struct MovieView: View {
 
                                            Divider().background(Color.white)
                                            
-                                           HorariosView()
+                                           HorariosView(funciones: funciones)
                                            
                                          //  Divider().background(Color.white)
                                        }
@@ -120,7 +136,7 @@ struct MovieView: View {
                                    .padding(.horizontal, 40)
                                
                            
-                            SeatGridView()
+                            SeatGridView(function: funcionSeleccionada)
                         }
                         .padding(.trailing, 100)
                         .padding(.top,200)
@@ -142,8 +158,25 @@ struct MovieView: View {
                                                    .padding()
                                            }
                 }
+            }.onAppear() {
+                Task{
+                    funciones = await functionViewModel.loadFunctionsByMovie(movieID: movie.id!, date: fechaSeleccionada)
                 }
             }
+        }.onChange(of: fechaSeleccionada) { newDate in // newDate is the new value of fechaSeleccionada
+            Task { // <--- Wrap your async call in a Task
+                do {
+                    // Make sure movie.id is not nil
+                    if let movieID = movie.id {
+                        self.funciones = await functionViewModel.loadFunctionsByMovie(movieID: movieID, date: newDate)
+                    } else {
+                        print("Error: movie.id es nil en onChange")
+                    }
+                } catch {
+                    print("Error al cargar funciones en onChange: \(error)")
+                }
+            }
+        }
             
             
             

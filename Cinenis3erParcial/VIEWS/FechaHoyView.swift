@@ -11,6 +11,7 @@ struct FechaHoyView: View {
     let calendar = Calendar(identifier: .gregorian)
     let diasSemana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
     let hoy = Date()
+    @StateObject var functionViewModel = FunctionViewModel()
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -38,15 +39,22 @@ struct FechaHoyView: View {
                     let fecha = calcularFecha(para: index)
                     let numero = calendar.component(.day, from: fecha)
                     let estilo = estiloPara(fecha: fecha)
+                    Button {
+                        Task{
+                            await functionViewModel.loadBoard(date: fecha, genre: "any", premiere: false)
+                        }
+                    } label: {
+                        Text("\(numero)")
+                            .font(.system(size: 20))
+                            .fontWeight(estilo.esHoy ? .bold : .regular)
+                            .foregroundColor(estilo.esPasado ? .gray : .primary)
+                            .strikethrough(estilo.esPasado, color: .gray)
+                            .padding(6)
+                            .background(estilo.esHoy ? Color("ColorAmarillo") : Color.clear)
+                            .clipShape(Circle())
+                    }.buttonStyle(PlainButtonStyle())
 
-                    Text("\(numero)")
-                        .font(.system(size: 20))
-                        .fontWeight(estilo.esHoy ? .bold : .regular)
-                        .foregroundColor(estilo.esPasado ? .gray : .primary)
-                        .strikethrough(estilo.esPasado, color: .gray)
-                        .padding(6)
-                        .background(estilo.esHoy ? Color("ColorAmarillo") : Color.clear)
-                        .clipShape(Circle())
+                    
                 }
             }
             .padding(.leading, 75)
@@ -77,4 +85,7 @@ struct FechaHoyView: View {
     }
 }
 
+#Preview {
+    FechaHoyView()
+}
 

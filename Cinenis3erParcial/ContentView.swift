@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isDarkImage = false
-    @State public var movies : [MovieModel] = []
+    @StateObject var functionViewModel = FunctionViewModel()
     var screen = NSScreen.main!.visibleFrame
     
 
     var body: some View {
         ZStack(alignment: .top) {
             TabView {
-                MainView(isDarkImage: $isDarkImage, movies: movies)
+                MainView(isDarkImage: $isDarkImage, movies: functionViewModel.movieList)
                 Text("Otra pestaña")
                 Text("Más contenido")
             }
@@ -28,16 +28,6 @@ struct ContentView: View {
         .frame(width: screen.width, height: screen.height)
         .edgesIgnoringSafeArea(.top)
     }
-    func loadProduct() async {
-            do{
-                let url = URL(string: "https://seahorse-app-yy79u.ondigitalocean.app/movies")
-                let (data,_) = try await URLSession.shared.data(from: url!)
-                let decoded = try JSONDecoder().decode([MovieModel].self, from: data)
-                movies = decoded
-            } catch let error {
-                print(error)
-            }
-        }
 
 }
 

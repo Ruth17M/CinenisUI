@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct SeatGridView: View {
-    
+    let function : Function
     let rows = Array("ABCDEFGH")
     let columns = 1...12
     @State private var seats: [[Seat]] = []
     @State private var selectedSeatsCount: Int = 3
+    @StateObject var functionViewModel = FunctionViewModel()
+    
+
 
     var body: some View {
         VStack(spacing: 10) {
@@ -119,60 +122,14 @@ struct SeatGridView: View {
 
         }
         .padding()
-        .onAppear {
-            generateSeats()
-            
-            
+        .onAppear(){
+            Task{
+                await seats = functionViewModel.loadSeats(functionID: function.id!)
+            }
         }
         
     }
 
-    func generateSeats() {
-        var allSeats: [[Seat]] = []
-
-        for row in rows {
-            var rowSeats: [Seat] = []
-            for col in columns {
-                rowSeats.append(Seat(row: String(row), number: col, status: .available))
-            }
-            allSeats.append(rowSeats)
-        }
-
-        // Aplanar la matriz
-        var flatSeats = allSeats.flatMap { $0 }
-
-        // Escoge 15 posiciones únicas para los asientos ocupados
-        var occupiedIndices = Set<Int>()
-        while occupiedIndices.count < 25 {
-            occupiedIndices.insert(Int.random(in: 0..<flatSeats.count))
-        }
-
-        for index in occupiedIndices {
-            flatSeats[index].status = .occupied
-        }
-
-        // Marcar asientos seleccionados
-        var selected = 0
-        for i in 0..<flatSeats.count {
-            if selected < selectedSeatsCount && flatSeats[i].status == .available {
-                flatSeats[i].status = .selected
-                selected += 1
-            }
-        }
-
-        //  matriz
-        var reshaped: [[Seat]] = []
-        var index = 0
-        for _ in rows {
-            var row: [Seat] = []
-            for _ in columns {
-                row.append(flatSeats[index])
-                index += 1
-            }
-            reshaped.append(row)
-        }
-
-        self.seats = reshaped
-    }
+    
 
 }

@@ -38,6 +38,7 @@ struct VideoBackgroundView: NSViewRepresentable {
 struct Categories: View {
     let category: String
     let videoName: String
+    @StateObject var functionViewModel = FunctionViewModel()
 
     var body: some View {
         ZStack {
@@ -52,6 +53,12 @@ struct Categories: View {
         }
         .frame(width: 200, height: 140)
         .buttonStyle(PlainButtonStyle())
+        .onTapGesture {
+            Task{
+                var todayDate : Date = Date()
+                await functionViewModel.loadBoard(date: todayDate, genre: category, premiere: false)
+            }
+        }
     }
 }
 
