@@ -6,8 +6,16 @@
 //
 
 import SwiftUI
+import AppKit
 
 struct BoletoView: View {
+    var username: String
+    var mail: String
+    var total: Double
+    var cantidadBoletos : Int
+    var asientosSeleccionados : [Seat]
+    var funcionSeleccionada : Function
+    @StateObject var salesViewModel = SalesViewModel()
     var body: some View {
         ZStack {
                    // Fondo con imagen y degradado
@@ -31,12 +39,12 @@ struct BoletoView: View {
                            .padding(.top, 30)
 
                        VStack(spacing: 15) {
-                           Text("Spider-Man: No Way Home")
+                           Text(funcionSeleccionada.movie.title)
                                .font(.title2)
                                .fontWeight(.bold)
                                .foregroundColor(.white)
 
-                           AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original/poUK5Gg7IkPokaBTjadzjPfJgKw.jpg")) { image in image
+                           AsyncImage(url: URL(string: funcionSeleccionada.movie.image)) { image in image
                                    .resizable()
                                    .scaledToFill()
                                    .frame(width: 180, height: 260)
@@ -49,7 +57,7 @@ struct BoletoView: View {
                            HStack(spacing: 20) {
                                Label("5 Feb", systemImage: "calendar")
                                Label("6:00 PM", systemImage: "clock")
-                               Label("150 min", systemImage: "hourglass")
+                               Label(String(funcionSeleccionada.movie.duration), systemImage: "hourglass")
                            }
                            .foregroundColor(.white)
                            .font(.subheadline)
@@ -61,25 +69,20 @@ struct BoletoView: View {
                                    Text("SALÓN")
                                        .font(.caption)
                                        .foregroundColor(.white)
-                                   Text("02")
+                                   Text(String(funcionSeleccionada.room))
                                        .font(.title2)
                                        .foregroundColor(.white)
                                }
                                VStack {
-                                   Text("FILA")
+                                   Text("ASIENTOS")
                                        .font(.caption)
                                        .foregroundColor(.white)
-                                   Text("5")
-                                       .font(.title2)
-                                       .foregroundColor(.white)
-                               }
-                               VStack {
-                                   Text("ASIENTO")
-                                       .font(.caption)
-                                       .foregroundColor(.white)
-                                   Text("18")
-                                       .font(.title2)
-                                       .foregroundColor(.white)
+                                   ForEach(asientosSeleccionados){seat in
+                                       Text(seat.id)
+                                           .font(.title2)
+                                           .foregroundColor(.white)
+                                   }
+                                   
                                }
                            }
 
@@ -88,13 +91,27 @@ struct BoletoView: View {
                                .fill(Color.white)
                                .frame(height: 40)
                                .overlay(Text("|||||||||||||||||||||||||").font(.caption2).foregroundColor(.black))
-                       }
+                           
+                           
+                           
+                    }
                        .padding()
                        .background(Color.red.opacity(0.9))
                        .cornerRadius(25)
                        .frame(maxWidth: 300)
                        .shadow(radius: 12)
                    }
-               }
+        }.onAppear(){
+            Task{
+                Task{
+                    await salesViewModel.createSale(username: username, mail: mail, total: total, numberOfSeats: cantidadBoletos, seatsReserved: asientosSeleccionados, functionID: funcionSeleccionada.id!)
+                    if let sale = salesViewModel.saleRecieved {
+                        let qrBase64 = salesViewModel.generateQR(from: sale)
+                        salesViewModel.saleRecieved?.qrCode = qrBase64
+                        let qrImage = salesViewModel.changeQRtoImage()
+                    }
+                }
+            }
+        }
     }
 }
