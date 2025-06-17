@@ -8,27 +8,32 @@
 import SwiftUI
 
 struct DetallesMovieView: View {
+    
     let movie: Movie
     
     var body: some View {
         VStack(spacing: 0) {
             
             // Imagen arriba, ocupando todo el ancho del recuadro
-            Image(movie.image)
-                .resizable()
-                .frame(maxWidth: 350, maxHeight: 410)
+            AsyncImage(url: URL(string: movie.image)) { image in
+                image
+                    .resizable()
+                    .frame(maxWidth: 397, maxHeight: 450)
+            } placeholder: {
+                ProgressView()
+            }
             
             // Recuadro con la información
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 8  ) {
                 Text("Director").bold()
                 Text(movie.director)
-
+                
                 Text("Actores").bold()
                 Text(movie.actors)
-
+                
                 Text("Descripción").bold()
                 Text(movie.description)
-
+                
                 HStack {
                     ForEach(0..<movie.stars, id: \.self) { _ in
                         Image(systemName: "star.fill")
@@ -39,10 +44,12 @@ struct DetallesMovieView: View {
             .padding()
             .foregroundColor(.white)
             .background(Color("ColorGris"))
+            .frame(maxWidth: .infinity)
         }
-       // .cornerRadius(10)
+        // .cornerRadius(10)
         .shadow(radius: 5)
+        .cornerRadius(20)
 
-            }
+        
+    }
 }
-
