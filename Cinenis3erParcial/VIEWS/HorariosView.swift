@@ -2,7 +2,9 @@ import SwiftUI
 import Foundation // Necesario para Date y DateFormatter
 
 struct HorariosView: View {
-    let funciones: [Function] // This should be passed in from MovieView
+    let movieID: Int// This should be passed in from MovieView
+    @StateObject var functionViewModel = FunctionViewModel()
+    @State var funciones : [Function]
 
     // No necesitamos 'var hora' como propiedad de HorariosView
     // La hora se calculará para cada 'funcion' individualmente
@@ -20,21 +22,24 @@ struct HorariosView: View {
                                 .padding(.horizontal, 12)
                                 .padding(.vertical, 8)
                                 // La condición ahora se basa en 'formattedTime'
-                                .foregroundColor(formattedTime == "20:00" ? .black : .white)
-                                .background(formattedTime == "20:00" ? Color("ColorAmarillo") : Color.gray.opacity(0.3))
+                                .foregroundColor(.white)
+                                .background(Color("ColorAmarillo"))
                                 .clipShape(Capsule())
                         }
                     }
                 }
             }
+        }.onAppear{
+            Task{
+                funciones = await functionViewModel.loadFunctionsByMovie(movieID: movieID, date: fechaSeleccionada)
+            }
         }
     }
 
-    private func timeString(from date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        formatter.locale = Locale(identifier: "es_MX")
-        return formatter.string(from: date)
+    private func timeString(from dateString: String) -> String {
+        var horario = String(dateString.dropLast(4))
+        horario = String(horario.dropFirst(11))
+        return horario
     }
 }
 

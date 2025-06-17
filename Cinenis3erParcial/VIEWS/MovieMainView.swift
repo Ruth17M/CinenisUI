@@ -75,16 +75,12 @@ struct MovieMainView: View {
                     .fontWeight(.light)
 
                 HStack(spacing:23){
-                    HorariosView(funciones: funciones)
+                    HorariosView(movieID: movieID, funciones: [])
                 }
 
             }
             .padding(.vertical, 15)
-            .onAppear{
-                Task{
-                    funciones = await functionViewModel.loadFunctionsByMovie(movieID: movieID, date: fechaSeleccionada)
-                }
-            }
+            
             
         }
         .padding(.vertical, 20)

@@ -2,7 +2,7 @@ import SwiftUI
 
 @MainActor
 class SalesViewModel : ObservableObject {
-    let BASE_URL = "https://orca-app-dk9lb.ondigitalocean.app"
+    let BASE_URL = "https://shark-app-p8ovg.ondigitalocean.app"
     @Published var isSaleLoading = false
     @StateObject var functionViewModel = FunctionViewModel()
     @Published var sale: Sale?

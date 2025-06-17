@@ -125,9 +125,10 @@ struct MovieView: View {
                                                .font(.system(size: 16, weight: .regular))
                                                .foregroundColor(.white)
 
+                                        
                                            Divider().background(Color.white)
                                            
-                                           HorariosView(funciones: funciones)
+                                           HorariosView(movieID: function.movie.id!, funciones: funciones)
                                            
                                          //  Divider().background(Color.white)
                                        }

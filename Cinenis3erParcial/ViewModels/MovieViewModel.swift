@@ -3,7 +3,7 @@ import SwiftUI
 @MainActor
 class MovieViewModel : ObservableObject {
 
-    let BASE_URL = "https://orca-app-dk9lb.ondigitalocean.app"
+    let BASE_URL = "https://shark-app-p8ovg.ondigitalocean.app"
     @Published var isMovieLoading = false
     @Published var movieList: [Movie] = []
 
