@@ -26,6 +26,7 @@ struct HorariosView: View {
                                 .background(Color("ColorAmarillo"))
                                 .clipShape(Capsule())
                         }
+                        .buttonStyle(.plain)
                     }
                 }
             }
