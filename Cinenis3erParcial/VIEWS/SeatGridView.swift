@@ -9,10 +9,16 @@ import SwiftUI
 
 struct SeatGridView: View {
     let function : Function
+    @Binding var numeroAsientos : Int
+    @Binding var asientosSeleccionados : [Seat]
     let rows = Array("ABCDEFGH")
     let columns = 1...12
-    @State private var seats: [[Seat]] = []
+    var a : Int = 0
+    var b : Int = 0
+    @State private var seats: [[Seat]] = [[]]
     @State private var selectedSeatsCount: Int = 3
+    @State var rowAsientosSeleccionados : [Int]
+    @State var columnAsientosSeleccionados : [Int]
     @StateObject var functionViewModel = FunctionViewModel()
     
 
@@ -70,7 +76,7 @@ struct SeatGridView: View {
                     ForEach(0..<columns.count, id: \.self) { columnIndex in
                         if rowIndex < seats.count && columnIndex < seats[rowIndex].count {
                             let seat = seats[rowIndex][columnIndex]
-                            SeatView(seat: seat)
+                            SeatView(seat: seat, row: rowIndex, column: columnIndex, asientosSeleccionados: $asientosSeleccionados, seats: $seats, rowAsientosSeleccionados: $rowAsientosSeleccionados, columnAsientosSeleccionados: $columnAsientosSeleccionados)
                         } else {
                             // asiento invisible
                             Rectangle()

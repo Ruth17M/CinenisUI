@@ -28,3 +28,15 @@ struct Sale : Codable, Identifiable {
     }
 
 }
+
+struct SaleModel : Codable, Identifiable{
+    var id: Int?
+    var saleDate : Date
+    var username : String
+    var mail : String
+    var total : Double
+    var numberOfSeats : Int
+    var seatsReserved : String
+    var function: Function
+
+}

@@ -20,7 +20,7 @@ struct Seat : Codable, Identifiable {
     let row: String
     let column: Int
     var status: SeatStatus
-    init(row: String, column: Int, initialStatus: SeatStatus = .available) {
+    init(row: String, column: Int, initialStatus: SeatStatus) {
         self.id = "\(row)\(column)"
         self.row = row
         self.column = column

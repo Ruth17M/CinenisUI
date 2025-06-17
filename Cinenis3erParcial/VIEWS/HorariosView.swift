@@ -4,7 +4,7 @@ import Foundation // Necesario para Date y DateFormatter
 struct HorariosView: View {
     let movieID: Int// This should be passed in from MovieView
     @StateObject var functionViewModel = FunctionViewModel()
-    @State var funciones : [Function]
+    @Binding var funciones : [Function] 
 
     // No necesitamos 'var hora' como propiedad de HorariosView
     // La hora se calculará para cada 'funcion' individualmente

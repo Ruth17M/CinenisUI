@@ -27,4 +27,5 @@ class MovieViewModel : ObservableObject {
             isMovieLoading = false
         }
     }
+
 }

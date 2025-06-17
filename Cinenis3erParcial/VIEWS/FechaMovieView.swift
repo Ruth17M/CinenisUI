@@ -11,6 +11,9 @@ import SwiftUI
 struct FechaMovieView: View {
     let calendar = Calendar(identifier: .gregorian)
     let hoy = Date()
+    @StateObject var functionViewModel = FunctionViewModel()
+    @Binding var funciones : [Function] 
+
 
     var body: some View {
         
@@ -25,6 +28,9 @@ struct FechaMovieView: View {
               
                 Button {
                     fechaSeleccionada = fecha
+                    Task{
+                        funciones = await functionViewModel.loadFunctionsByMovie(movieID: selectedMovieID!, date: fecha)
+                    }
                 } label: {
                     VStack(spacing: 4) {
                         Text(dia)

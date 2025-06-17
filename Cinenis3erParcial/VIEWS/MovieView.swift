@@ -11,9 +11,13 @@ import SwiftUI
 struct MovieView: View {
     var function : Function
     @StateObject var functionViewModel = FunctionViewModel()
+    @StateObject var salesViewModel = SalesViewModel()
     @State var movie : Movie
     @State var funciones : [Function]
     @State var funcionSeleccionada : Function
+    @State var cantidadBoletos : Int = 3
+    @State var asientosSeleccionados : [Seat] = []
+    
     var classification: String {
             movie.classification
     }
@@ -111,7 +115,7 @@ struct MovieView: View {
 
                                            Divider().background(Color.white)
                                            
-                                           FechaMovieView()
+                                           FechaMovieView(funciones: $funciones)
                                            
                                           // Divider().background(Color.white)
                                        }
@@ -128,7 +132,7 @@ struct MovieView: View {
                                         
                                            Divider().background(Color.white)
                                            
-                                           HorariosView(movieID: function.movie.id!, funciones: funciones)
+                                           HorariosView(movieID: movie.id!, functionViewModel: functionViewModel, funciones: $funciones)
                                            
                                          //  Divider().background(Color.white)
                                        }
@@ -137,7 +141,7 @@ struct MovieView: View {
                                    .padding(.horizontal, 40)
                                
                            
-                            SeatGridView(function: funcionSeleccionada)
+                            SeatGridView(function: funcionSeleccionada,numeroAsientos: $cantidadBoletos, asientosSeleccionados: $asientosSeleccionados, rowAsientosSeleccionados: [], columnAsientosSeleccionados: [])
                         }
                         .padding(.trailing, 100)
                         .padding(.top,200)
@@ -151,7 +155,7 @@ struct MovieView: View {
                  
                 
                 HStack{
-                    NavigationLink(destination: BoletoView()) {
+                    NavigationLink(destination: BoletoView(username: "estatico", mail: "Estatico", total: Double(cantidadBoletos)*80.00, cantidadBoletos: cantidadBoletos, asientosSeleccionados: asientosSeleccionados, funcionSeleccionada: funcionSeleccionada)) {
                                                Image(systemName: "arrow.left.circle.fill")
                                                    .resizable()
                                                    .frame(width: 40, height: 40)
@@ -162,6 +166,7 @@ struct MovieView: View {
             }.onAppear() {
                 Task{
                     funciones = await functionViewModel.loadFunctionsByMovie(movieID: movie.id!, date: fechaSeleccionada)
+                    selectedMovieID = movie.id!
                 }
             }
         }.onChange(of: fechaSeleccionada) { newDate in // newDate is the new value of fechaSeleccionada

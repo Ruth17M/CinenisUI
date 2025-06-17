@@ -11,7 +11,6 @@ struct FechaHoyView: View {
     let calendar = Calendar(identifier: .gregorian)
     let diasSemana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
     let hoy = Date()
-    @StateObject var functionViewModel = FunctionViewModel()
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -41,7 +40,7 @@ struct FechaHoyView: View {
                     let estilo = estiloPara(fecha: fecha)
                     Button {
                         Task{
-                            await functionViewModel.loadBoard(date: fecha, genre: "any", premiere: false)
+                            fechaSeleccionada = fecha
                         }
                     } label: {
                         Text("\(numero)")
@@ -85,7 +84,5 @@ struct FechaHoyView: View {
     }
 }
 
-#Preview {
-    FechaHoyView()
-}
+
 

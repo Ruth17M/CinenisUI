@@ -30,7 +30,6 @@ struct MainView : View {
                 
                 VStack(alignment: .leading, spacing: 20) {
                     HStack{
-                        FechaHoyView()
                         Spacer()
                         
                     }

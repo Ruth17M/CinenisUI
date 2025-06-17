@@ -124,14 +124,20 @@ class FunctionViewModel : ObservableObject {
     func createArraySeats(availabityString: String){
         var rows = ["A", "B", "C", "D", "E", "F", "G", "H"]
         let takenSet: Set<String> = Set(availabityString.split(separator: ",").map { String($0) })
-        for i in 0..<rows.count { 
+        for i in 0..<rows.count {
             var seatRow: [Seat] = [] 
-            for j in 1...10 {
+            for j in 1...12 {
                 let actualRow = rows[i]
                 let seatId = "\(actualRow)\(j)"
                 let isAvailable = !takenSet.contains(seatId)
-                let newSeat = Seat(row: actualRow, column: j)
-                seatRow.append(newSeat)
+                if isAvailable{
+                    let newSeat = Seat(row: actualRow, column: j, initialStatus: SeatStatus.available)
+                    seatRow.append(newSeat)
+                }else{
+                    let newSeat = Seat(row: actualRow, column: j, initialStatus: SeatStatus.occupied)
+                    seatRow.append(newSeat)
+                }
+                
             }
             seats.append(seatRow)
         }

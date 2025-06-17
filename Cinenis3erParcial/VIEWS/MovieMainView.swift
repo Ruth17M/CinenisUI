@@ -16,6 +16,7 @@ struct MovieMainView: View {
     let categoria : String
     @StateObject var functionViewModel = FunctionViewModel()
     @State var funciones : [Function] = []
+
     
     
     
@@ -75,7 +76,7 @@ struct MovieMainView: View {
                     .fontWeight(.light)
 
                 HStack(spacing:23){
-                    HorariosView(movieID: movieID, funciones: [])
+                    HorariosView(movieID: movieID, funciones: $funciones)
                 }
 
             }
