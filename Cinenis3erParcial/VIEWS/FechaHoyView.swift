@@ -21,21 +21,21 @@ struct FechaHoyView: View {
             
             Divider()
                 .background(Color("ColorNegro"))
-                .frame(width: 1200)
+                .frame(width: 1335)
             
             // Días de la semana
-            HStack(spacing: 100) {
+            HStack(spacing: 127) {
                 ForEach(diasSemana, id: \.self) { dia in
                     Text(dia)
                 }
             }
-            .padding(.leading, 60)
+            .padding(.horizontal, 50)
             .padding(.vertical, 5)
             .font(.system(size: 20))
             .fontWeight(.light)
 
             // Días del mes con estilo
-            HStack(spacing: 135) {
+            HStack(spacing: 160) {
                 ForEach(0..<7) { index in
                     let fecha = calcularFecha(para: index)
                     let numero = calendar.component(.day, from: fecha)
@@ -59,7 +59,7 @@ struct FechaHoyView: View {
                     
                 }
             }
-            .padding(.leading, 75)
+            .padding(.horizontal, 60)
         }
     }
 

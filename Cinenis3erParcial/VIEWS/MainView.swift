@@ -18,22 +18,22 @@ struct MainView : View {
             CarouselMainView(isDarkImage: $isDarkImage)
                 .frame(minHeight: 900)
             VStack {
-                HStack (spacing: 50) {
+                HStack (spacing: 40) {
                     //agregar funcion de filtrado
                     Categories(category: "Terror", videoName: "video_terror", movies: $movies)
                     Categories(category: "Comedia", videoName: "video_comedia", movies: $movies)
                     Categories(category: "Romance", videoName: "video_romance", movies: $movies)
                     Categories(category: "Ficción", videoName: "video_ficcion", movies: $movies)
                     Categories(category: "Infantiles", videoName: "video_infantil", movies: $movies)
+                    Categories(category: "Acción", videoName: "video_accion", movies: $movies)
                 }
                 .padding(.vertical, 50)
                 
                 VStack(alignment: .leading, spacing: 20) {
                     HStack{
-                        Spacer()
                         FechaHoyView(movies: $movies, functionViewModel: functionViewModel)
                     }
-                    .padding(.leading, 80)
+                    .padding(.leading, 10)
                     .padding(.vertical, 15)
                     
                     ForEach(movies){movie in

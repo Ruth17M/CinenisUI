@@ -44,7 +44,7 @@ struct Categories: View {
     var body: some View {
         ZStack {
             VideoBackgroundView(videoName: videoName)
-                .frame(width: 200, height: 140)
+                .frame(width: 190, height: 130)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
 
             Text(category)
@@ -52,7 +52,7 @@ struct Categories: View {
                 .foregroundColor(.white)
                 .shadow(radius: 2)
         }
-        .frame(width: 200, height: 140)
+        .frame(width: 190, height: 130)
         .buttonStyle(PlainButtonStyle())
         .onTapGesture {
             Task{
