@@ -9,12 +9,12 @@ import SwiftUI
 
 
 public struct ModalRegistro: View {
-      @State private var username: String = ""
+    @State private var username: String = ""
     @State private var mail: String = ""
-
-
+    
+    
     public var body: some View {
-      
+        
         ZStack {
             
             // Fondo imagen estática con gradiente
@@ -38,8 +38,8 @@ public struct ModalRegistro: View {
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .padding(.top, 250)
-               
-             
+                
+                
                 
                 // Rectángulo vertical con los campos y botón
                 VStack(spacing: 16) {
@@ -66,20 +66,26 @@ public struct ModalRegistro: View {
                         .cornerRadius(10)
                         .foregroundColor(.white)
                     
-               
-                       /* BoletoView(username: "estatico", mail: String"estatico", total: total *80, cantidadBoletos: , asientosSeleccionados: <#[Seat]#>,
-                        funcionSeleccionada: <#Function#>) */
-                       
-                        NavigationLink(destination: /*BoletoView()*/ ContentView()) {
-                            Text("Enviar")
-                                .padding()
-                                .frame(maxWidth: 200)
-                                .background(Color("ColorAmarillo"))
-                               // .foregroundColor(Color("ColorAmarillo"))
-                                .cornerRadius(10)
-                                .buttonStyle(PlainButtonStyle())
-                        }
-                        .buttonStyle(PlainButtonStyle())
+                    
+                    /* BoletoView(username: "estatico", mail: String"estatico", total: total *80, cantidadBoletos: , asientosSeleccionados: <#[Seat]#>,
+                     funcionSeleccionada: <#Function#>) */
+                    
+                    NavigationLink(destination: /*BoletoView()*/ ContentView()) {
+                        Text("Enviar")
+                            .padding()
+                            .frame(maxWidth: 200)
+                            .background(Color("ColorAmarillo"))
+                        // .foregroundColor(Color("ColorAmarillo"))
+                            .cornerRadius(10)
+                            .buttonStyle(PlainButtonStyle())
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    
+                    
+                    
+                    
+                    
                 }
                 .padding()
                 .background(
@@ -88,13 +94,13 @@ public struct ModalRegistro: View {
                 )
                 .padding(.horizontal, 40)
             }
-             .frame(maxWidth: 400, maxHeight: .infinity, alignment: .top)
+            .frame(maxWidth: 400, maxHeight: .infinity, alignment: .top)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                  // .multilineTextAlignment(.center)
-
+        // .multilineTextAlignment(.center)
         
-            }
-        }
-      
-
+        
+    }
+    
+    
+}

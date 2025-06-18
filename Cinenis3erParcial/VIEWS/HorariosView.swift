@@ -18,13 +18,16 @@ struct HorariosView: View {
 
                         NavigationLink(destination: MovieView(function: funcion)) {
                             Text(formattedTime) // Usar la hora formateada de esta función
-                                .font(.system(size: 15, weight: .light))
+                                .font(.system(size: 20, weight: .light))
                                 .padding(.horizontal, 12)
                                 .padding(.vertical, 8)
                                 // La condición ahora se basa en 'formattedTime'
                                // .foregroundColor(.white)
-                                .background(Color("ColorAmarillo"))
-                                .clipShape(Capsule())
+                                .overlay(
+                                    clipShape(Capsule())
+                                        .border(Color.black, width: 1)
+                                )
+                                
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
@@ -44,3 +47,6 @@ struct HorariosView: View {
     }
 }
 
+#Preview {
+    ContentView()
+}
