@@ -50,6 +50,7 @@ struct MainView: View {
                 }) {
                     Text("Ver todas las categorías")
                         .font(.system(size: 18, weight: .medium))
+                        .fontWeight(.light)
                         .padding(.horizontal, 20)
                         .padding(.vertical, 8)
                         .foregroundColor(Color("MenuTexto"))
