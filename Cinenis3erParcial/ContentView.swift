@@ -6,32 +6,24 @@
 //
 import SwiftUI
 
-
 struct ContentView: View {
     @State private var isDarkImage = false
     @StateObject var functionViewModel = FunctionViewModel()
+    @State private var isScrolledPastCarousel = false  // <-- Nuevo estado
     var screen = NSScreen.main!.visibleFrame
-    
 
     var body: some View {
         ZStack(alignment: .top) {
-            TabView {
-                MainView(isDarkImage: $isDarkImage, movies: functionViewModel.movieList)
-                Text("Otra pestaña")
-                Text("Más contenido")
-            }
-
-            MenuBar(isDarkImage: isDarkImage)
+            MainView(isDarkImage: $isDarkImage,
+                     movies: functionViewModel.movieList,
+                     isScrolledPastCarousel: $isScrolledPastCarousel)  // <-- Pasar binding
+            
+            MenuBar(isDarkImage: isDarkImage,
+                    hasBackground: isScrolledPastCarousel)  // <-- Pasar estado al menú
                 .zIndex(1)
-                .padding(.top, 50)
+                
         }
         .frame(width: screen.width, height: screen.height)
         .edgesIgnoringSafeArea(.top)
     }
-
-}
-
-
-#Preview {
-    ContentView()
 }

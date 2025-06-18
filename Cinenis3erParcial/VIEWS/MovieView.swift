@@ -17,6 +17,7 @@ struct MovieView: View {
     @State var funcionSeleccionada : Function
     @State var cantidadBoletos : Int = 3
     @State var asientosSeleccionados : [Seat] = []
+    @State private var isScrolledPastCarousel = false 
     
     var classification: String {
             movie.classification
@@ -147,7 +148,7 @@ struct MovieView: View {
                      }
                     
                     // MenuBar
-                    MenuBar(isDarkImage: isDarkImage)
+                    MenuBar(isDarkImage: isDarkImage, hasBackground: isScrolledPastCarousel)
                         .padding(.top, 5)
                         .zIndex(1)
                         .frame(maxWidth: .infinity, alignment: .top)
