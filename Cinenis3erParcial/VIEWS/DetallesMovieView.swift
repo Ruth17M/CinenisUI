@@ -14,18 +14,22 @@ struct DetallesMovieView: View {
         VStack(spacing: 0) {
             
             // Imagen arriba, ocupando todo el ancho del recuadro
-            Image(movie.image)
-                .resizable()
-                .frame(maxWidth: 350, maxHeight: 410)
+            AsyncImage(url: URL(string: movie.image)) { image in
+                image
+                    .resizable()
+                    .frame(maxWidth: 397, maxHeight: 450)
+            } placeholder: {
+                ProgressView()
+            }
             
             // Recuadro con la información
             VStack(alignment: .leading, spacing: 8) {
                 Text("Director").bold()
                 Text(movie.director)
-
+                
                 Text("Actores").bold()
                 Text(movie.actors)
-
+                
                 Text("Descripción").bold()
                 Text(movie.description)
 

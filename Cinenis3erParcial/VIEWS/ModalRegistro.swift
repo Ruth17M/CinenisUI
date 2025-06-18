@@ -9,7 +9,7 @@ import SwiftUI
 
 
 public struct ModalRegistro: View {
-      @State private var username: String = ""
+    @State private var username: String = ""
     @State private var mail: String = ""
 
 

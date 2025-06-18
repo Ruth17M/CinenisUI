@@ -54,7 +54,7 @@ struct MovieMainView: View {
                         .padding(0)
                     
                     Text(String("\(duracion) min"))
-                        .font(.system(size: 40))
+                        .font(.system(size: 20))
                         .fontWeight(.light)
                 }
 

@@ -25,23 +25,24 @@ struct MainView : View {
                     Categories(category: "Romance", videoName: "video_romance", movies: $movies)
                     Categories(category: "Ficción", videoName: "video_ficcion", movies: $movies)
                     Categories(category: "Infantiles", videoName: "video_infantil", movies: $movies)
-                    Categories(category: "Acción", videoName: "video_accion", movies: $movies)
+                    Categories(category: "Action", videoName: "video_accion", movies: $movies)
                 }
                 .padding(.vertical, 50)
                 
-                VStack(alignment: .leading, spacing: 20) {
-                    HStack{
-                        FechaHoyView(movies: $movies, functionViewModel: functionViewModel)
-                    }
-                    .padding(.leading, 10)
-                    .padding(.vertical, 15)
-                    
-                    ForEach(movies){movie in
-                        MovieMainView(movieID: movie.id!,image: movie.image, nombrePelicula: movie.title, clasificacion: movie.classification, duracion: movie.duration, categoria: movie.genre)
-                        
+                VStack(alignment: .center, spacing: 20) {
+                    FechaHoyView(movies: $movies, functionViewModel: functionViewModel)
+                        .padding(.vertical, 15)
+                        // Opcional: fijar un maxWidth para no ocupar toda la pantalla si quieres
+
+                    ForEach(movies) { movie in
+                        MovieMainView(movieID: movie.id!, image: movie.image, nombrePelicula: movie.title, clasificacion: movie.classification, duracion: movie.duration, categoria: movie.genre)
+                            //.frame(maxWidth: .infinity, alignment: .center)
+                            .frame(width: 1490)  // ancho fijo
+                            .frame(maxWidth: .infinity)  // centra el frame fijo
                     }
                 }
-                .padding(.horizontal, 60)
+                .padding(.horizontal, 20)  // menos padding para dar margen pero no tanto como antes
+
                 
               
                 

@@ -1,4 +1,6 @@
 import SwiftUI
+import CoreImage.CIFilterBuiltins
+import AppKit
 
 @MainActor
 class SalesViewModel : ObservableObject {
@@ -7,13 +9,15 @@ class SalesViewModel : ObservableObject {
     @StateObject var functionViewModel = FunctionViewModel()
     @Published var sale: Sale?
     @Published var saleRecieved: SaleModel?
+    private let ciContext = CIContext()
+    private let qrFilter = CIFilter.qrCodeGenerator()
     init(){
         Task {
-
+            
         }
     }
     
-
+    
     func loadSale(saleId: Int) async -> SaleModel? {
         guard let url = URL(string: "\(BASE_URL)/sales?id=\(saleId)") else { return saleRecieved! }
         do{
@@ -30,7 +34,7 @@ class SalesViewModel : ObservableObject {
             return saleRecieved!
         }
     }
-
+    
     func createSale(username: String, mail: String, total: Double, numberOfSeats: Int, seatsReserved: [Seat], functionID: Int) async {
         guard let url = URL(string: "\(BASE_URL)/sales") else { return }
         let formatter = DateFormatter()
@@ -40,7 +44,7 @@ class SalesViewModel : ObservableObject {
             seats.append("\(seat.row)\(seat.column),")
         }
         let iso8601Formatter = ISO8601DateFormatter()
-                iso8601Formatter.formatOptions = [.withInternetDateTime]
+        iso8601Formatter.formatOptions = [.withInternetDateTime]
         let saleDateString = iso8601Formatter.string(from: Date())
         struct CreateSaleRequest: Encodable {
             let saleDate: String // Or use Date and a custom encoder/formatter
@@ -49,18 +53,18 @@ class SalesViewModel : ObservableObject {
             let total: Double
             let numberOfSeats: Int
             let seatsReserved: String // String of comma-separated seats
-            let qrCode: String
+            var qrCode: String
             let functionID: Int
             // Add any other fields your API expects
         }
-        let requestBody = CreateSaleRequest(
+        var requestBody = CreateSaleRequest(
             saleDate: saleDateString,
             username: username,
             mail: mail,
             total: total,
             numberOfSeats: numberOfSeats,
             seatsReserved: seats, // The comma-separated string
-            qrCode:  generateQR(),
+            qrCode:  "",
             functionID: functionID
         )
         do {
@@ -69,22 +73,54 @@ class SalesViewModel : ObservableObject {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = try JSONEncoder().encode(requestBody)
             let (data, response) = try await URLSession.shared.data(for: request)
-            await functionViewModel.reserveSeats(seatsReserved: seatsReserved, functionID: functionID);
-            print("Venta enviada correctamente:", response)
+            let createdSale = try JSONDecoder().decode(SaleModel.self, from: data)
+            self.saleRecieved = createdSale
+            
+            if let sale = saleRecieved,
+               let qrBase64 = generateQR(from: sale) {
+                requestBody.qrCode = qrBase64
+            }
+            
+            await functionViewModel.reserveSeats(
+                seatsReserved: seatsReserved,
+                functionID:    functionID
+            )
         } catch {
             print("Error enviando la venta:", error)
         }
     }
-
-
-    func generateQR() -> String{
-        return "vnjktrjngkjnrt"
-    }
-
-    func changeQRtoImage(){
-
+    
+    
+    func generateQR(from sale: SaleModel) -> String? {
+        guard let jsonData = try? JSONEncoder().encode(sale),
+              let jsonString = String(data: jsonData, encoding: .utf8)
+        else { return "" }
+        
+        let data = Data(jsonString.utf8)
+        qrFilter.setValue(data, forKey: "inputMessage")
+        
+        guard let ciImage = qrFilter.outputImage?
+            .transformed(by: CGAffineTransform(scaleX: 10, y: 10)),
+              let cgImage = ciContext.createCGImage(ciImage, from: ciImage.extent)
+        else {
+            return ""
+        }
+        
+        let rep = NSBitmapImageRep(cgImage: cgImage)
+        guard let pngData = rep.representation(using: .png, properties: [:]) else {
+            return ""
+        }
+        
+        return pngData.base64EncodedString()
     }
     
-
+    func changeQRtoImage() -> NSImage? {
+        guard let b64 = saleRecieved?.qrCode,
+              let data = Data(base64Encoded: b64)
+        else { return nil }
+        return NSImage(data: data)
+    }
+    
+    
     
 }
