@@ -117,5 +117,6 @@ struct BoletoView: View {
         }
     }
 }
+}
 
 
