@@ -17,9 +17,6 @@ struct MovieMainView: View {
     @StateObject var functionViewModel = FunctionViewModel()
     @State var funciones : [Function] = []
 
-    
-    
-    
     var body: some View {
         
         HStack(spacing: 25){
@@ -66,7 +63,7 @@ struct MovieMainView: View {
                     .fontWeight(.light)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 5)
-                    //.background(Color(colorCategoria))
+                    .background(Color(colorParaCategoria(categoria)))
                     .clipShape(Capsule())
                 
                 Spacer()
@@ -85,5 +82,17 @@ struct MovieMainView: View {
             
         }
         .padding(.vertical, 20)
+    }
+    
+    func colorParaCategoria(_ categoria: String) -> Color {
+        switch categoria {
+        case "Terror": return Color(red: 188/255, green: 71/255, blue: 73/255)
+        case "Comedia": return Color(red:251/255, green:133/255, blue:0/255)
+        case "Romance": return Color(red: 237/255, green: 175/255, blue: 184/255)
+        case "Ficción": return Color(red: 205/255, green: 180/255, blue: 219/255)
+        case "Infantiles": return Color(red: 255/255, green: 183/255, blue: 3/255)
+        case "Action": return Color(red: 33/255, green: 158/255, blue: 184/255)
+        default: return .gray
+        }
     }
 }
