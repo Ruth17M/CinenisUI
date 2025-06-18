@@ -74,7 +74,7 @@ class SalesViewModel : ObservableObject {
             request.httpBody = try JSONEncoder().encode(requestBody)
 
             let (data, response) = try await URLSession.shared.data(for: request)
-            let createdSale = try JSONDecoder().decode(SaleModel.self, from: data)More actions
+            let createdSale = try JSONDecoder().decode(SaleModel.self, from: data)
             self.saleRecieved = createdSale
 
             if let sale = saleRecieved,
@@ -82,7 +82,7 @@ class SalesViewModel : ObservableObject {
                 requestBody.qrCode = qrBase64
             }
 
-            await functionViewModel.reserveSeats(More actions
+            await functionViewModel.reserveSeats(
                 seatsReserved: seatsReserved,
                 functionID:    functionID
                 )
@@ -92,7 +92,7 @@ class SalesViewModel : ObservableObject {
     }
 
 
-    func generateQR(from sale: SaleModel) -> String? {More actions
+    func generateQR(from sale: SaleModel) -> String? {
         guard let jsonData = try? JSONEncoder().encode(sale),
               let jsonString = String(data: jsonData, encoding: .utf8)
         else { return "" }

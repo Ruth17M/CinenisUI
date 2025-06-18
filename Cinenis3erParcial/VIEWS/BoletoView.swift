@@ -102,7 +102,7 @@ struct BoletoView: View {
             Task{
                 Task{
                     await salesViewModel.createSale(username: username, mail: mail, total: total, numberOfSeats: cantidadBoletos, seatsReserved: asientosSeleccionados, functionID: funcionSeleccionada.id!)
-                    if let sale = salesViewModel.saleRecieved {More actions
+                    if let sale = salesViewModel.saleRecieved {
                         let qrBase64 = salesViewModel.generateQR(from: sale)
                         salesViewModel.saleRecieved?.qrCode = qrBase64
                         let qrImage = salesViewModel.changeQRtoImage()

@@ -14,7 +14,7 @@ struct DetallesMovieView: View {
         VStack(spacing: 0) {
             
  
-            AsyncImage(url: URL(string: movie.image)) { image inMore actions
+            AsyncImage(url: URL(string: movie.image)) { image in
                 image
                     .resizable()
                     .frame(maxWidth: 397, maxHeight: 450)
