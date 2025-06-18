@@ -42,7 +42,7 @@ struct MovieMainView: View {
                         .fontWeight(.regular)
                         .frame(width: 33, height: 20)
                         .padding(5)
-                        //.background(Color(colorClasificacion))
+                        .background(Color(colorParaClasificacion(clasificacion)))
                         .clipShape(Capsule())
                         
                     
@@ -92,6 +92,16 @@ struct MovieMainView: View {
         case "Ficción": return Color(red: 205/255, green: 180/255, blue: 219/255)
         case "Infantiles": return Color(red: 255/255, green: 183/255, blue: 3/255)
         case "Action": return Color(red: 33/255, green: 158/255, blue: 184/255)
+        default: return .gray
+        }
+    }
+    
+    func colorParaClasificacion(_ clasificacion: String) -> Color {
+        switch clasificacion {
+            case "A": return Color(red: 176/255, green: 196/255, blue: 177/255)
+            case "TBC": return Color(red: 237/255, green: 175/255, blue: 184/255)
+            case "B15": return Color(red: 255/255, green: 214/255, blue: 10/255)
+            case "C": return Color(red: 69/255, green: 123/255, blue: 157/255)
         default: return .gray
         }
     }
