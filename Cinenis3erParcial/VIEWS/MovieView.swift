@@ -84,9 +84,10 @@ struct MovieView: View {
 
                                 Image(systemName: "clock.arrow.trianglehead.counterclockwise.rotate.90")
                                       .resizable()
+                                      .font(.subheadline)
                                       .frame(width: 25, height: 25)
                                       .foregroundColor(.white)
-                                Text("\(movie.duration)")
+                                Text("\(movie.duration)min")
                                         .font(.subheadline)
                                         .foregroundColor(.white)
 
@@ -203,7 +204,8 @@ struct MovieView: View {
                         .padding()
                         
                         Spacer()
-                        NavigationLink(destination: BoletoView(username: "estatico", mail: "Estatico", total: Double(cantidadBoletos)*80.00, cantidadBoletos: cantidadBoletos, asientosSeleccionados: asientosSeleccionados, funcionSeleccionada: funcionSeleccionada)){
+                        NavigationLink(destination:  ModalRegistro()
+                                      /* BoletoView(username: "", mail: "", total: , cantidadBoletos:  , asientosSeleccionados: , funcionSeleccionada: )*/){
                                                    Image(systemName: "arrow.right.circle.fill")
                                                        .resizable()
                                                        .frame(width: 40, height: 40)

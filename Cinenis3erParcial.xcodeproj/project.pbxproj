@@ -23,6 +23,7 @@
 		9E7301572DFF668D00BA9B7C /* HorariosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7301562DFF668900BA9B7C /* HorariosView.swift */; };
 		9E7301592DFF76CA00BA9B7C /* BoletoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7301582DFF76C700BA9B7C /* BoletoView.swift */; };
 		9E9CDE7C2E0216B300C9BB0D /* video_accion.mov in Resources */ = {isa = PBXBuildFile; fileRef = 9E9CDE7B2E0216B300C9BB0D /* video_accion.mov */; };
+		9E9CDE7F2E028ADA00C9BB0D /* ModalRegistro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9CDE7E2E028AD500C9BB0D /* ModalRegistro.swift */; };
 		9EB59BF52DFDE1B900F61449 /* MovieMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB59BF42DFDE1B000F61449 /* MovieMainView.swift */; };
 		9EE017202DF9FC2B00F99331 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0171F2DF9FC2700F99331 /* MovieView.swift */; };
 		9EF45B592DFD4F8D0013C9BE /* teatro_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9EF45B582DFD4F8D0013C9BE /* teatro_background.jpg */; };
@@ -60,6 +61,7 @@
 		9E7301582DFF76C700BA9B7C /* BoletoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoletoView.swift; sourceTree = "<group>"; };
 		9E9CDE7B2E0216B300C9BB0D /* video_accion.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video_accion.mov; sourceTree = "<group>"; };
 		9E9CDE7D2E0247A300C9BB0D /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
+		9E9CDE7E2E028AD500C9BB0D /* ModalRegistro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalRegistro.swift; sourceTree = "<group>"; };
 		9EB59BF42DFDE1B000F61449 /* MovieMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMainView.swift; sourceTree = "<group>"; };
 		9EB59BF82DFDE47300F61449 /* Horarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Horarios.swift; sourceTree = "<group>"; };
 		9EE0171F2DF9FC2700F99331 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		9EE0171E2DF9FC2200F99331 /* VIEWS */ = {
 			isa = PBXGroup;
 			children = (
+				9E9CDE7E2E028AD500C9BB0D /* ModalRegistro.swift */,
 				9E7301582DFF76C700BA9B7C /* BoletoView.swift */,
 				9E7301562DFF668900BA9B7C /* HorariosView.swift */,
 				9E7301542DFF5F5500BA9B7C /* FechaMovieView.swift */,
@@ -275,6 +278,7 @@
 				9EE017202DF9FC2B00F99331 /* MovieView.swift in Sources */,
 				CB390FCF2E0081410054DD07 /* Seat.swift in Sources */,
 				9E699B6A2DFA3A5600918CE0 /* CarouselMainView.swift in Sources */,
+				9E9CDE7F2E028ADA00C9BB0D /* ModalRegistro.swift in Sources */,
 				CB390FD12E00833E0054DD07 /* FechaHoyView.swift in Sources */,
 				9E699B6E2DFB50B000918CE0 /* MainView.swift in Sources */,
 				9E699B6C2DFB3A2800918CE0 /* NSImage.swift in Sources */,
