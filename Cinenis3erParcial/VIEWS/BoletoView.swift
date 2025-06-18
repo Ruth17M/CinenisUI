@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppKit
 
 struct BoletoView: View {
     var username: String
@@ -101,6 +102,10 @@ struct BoletoView: View {
             Task{
                 Task{
                     await salesViewModel.createSale(username: username, mail: mail, total: total, numberOfSeats: cantidadBoletos, seatsReserved: asientosSeleccionados, functionID: funcionSeleccionada.id!)
+                    if let sale = salesViewModel.saleRecieved {More actions
+                        let qrBase64 = salesViewModel.generateQR(from: sale)
+                        salesViewModel.saleRecieved?.qrCode = qrBase64
+                        let qrImage = salesViewModel.changeQRtoImage()
                 }
             }
         }
