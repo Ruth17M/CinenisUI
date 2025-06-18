@@ -67,9 +67,9 @@ struct MovieView: View {
                     
                     //Recuadro Detalles View
                     DetallesMovieView(movie: movie)
-                        .frame(width: 400)
+                        .frame(width: 350)
                         .padding(.leading, 150) //padding pelicula
-                        .padding(.top, 20) //padding pelicula
+                        .padding(.top, 200) //padding pelicula
                     
                     
                     
@@ -103,6 +103,7 @@ struct MovieView: View {
                                                     .stroke(Color(colorClasificacion), lineWidth: 1)
                                             )
                             }
+                            .padding(.leading, 45)
                             // Seccion Horarios y Fecha
                             HStack(alignment: .top) {
                                        
@@ -132,6 +133,9 @@ struct MovieView: View {
                                            Divider().background(Color.white)
                                            
                                            HorariosView(movieID: movie.id!, functionViewModel: functionViewModel, funciones: $funciones)
+                                               .foregroundColor(.white)
+
+
                                            
                                          //  Divider().background(Color.white)
                                        }
@@ -143,7 +147,7 @@ struct MovieView: View {
                             SeatGridView(function: funcionSeleccionada,numeroAsientos: $cantidadBoletos, asientosSeleccionados: $asientosSeleccionados, rowAsientosSeleccionados: [], columnAsientosSeleccionados: [])
                         }
                         .padding(.trailing, 100)
-                        .padding(.top,200)
+                        .padding(.top,150)
                      }
                     
                     // MenuBar

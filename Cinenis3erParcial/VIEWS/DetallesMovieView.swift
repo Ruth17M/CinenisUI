@@ -17,7 +17,7 @@ struct DetallesMovieView: View {
             AsyncImage(url: URL(string: movie.image)) { image in
                 image
                     .resizable()
-                    .frame(maxWidth: 397, maxHeight: 450)
+                    .frame(maxWidth: 350, maxHeight: 370)
             } placeholder: {
                 ProgressView()
             }
