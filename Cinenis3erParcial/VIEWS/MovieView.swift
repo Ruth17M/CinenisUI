@@ -51,8 +51,7 @@ struct MovieView: View {
             ZStack(alignment: .topLeading){
                 
                 // Fondo con gradiente
-                //Cambiar a imagen estatica
-                /*Image(nmovie.backgroundImage)
+                Image("teatro_background")
                     .resizable()
                     .scaledToFill()
                     .overlay(LinearGradient(
@@ -61,7 +60,7 @@ struct MovieView: View {
                         endPoint: .bottom)
                     )
                     .edgesIgnoringSafeArea(.all)
-                */
+                
              
                 //Detalles y asientos
                 HStack{
@@ -70,12 +69,11 @@ struct MovieView: View {
                     DetallesMovieView(movie: movie)
                         .frame(width: 400)
                         .padding(.leading, 150) //padding pelicula
-                        .padding(.top, 40) //padding pelicula
+                        .padding(.top, 20) //padding pelicula
                     
                     
                     
                     //Parte derecha de interfaz
-       
                         VStack(alignment: .leading, spacing: 20){
                           
                             HStack{
@@ -152,17 +150,74 @@ struct MovieView: View {
                         .padding(.top, 5)
                         .zIndex(1)
                         .frame(maxWidth: .infinity, alignment: .top)
-                 
                 
-                HStack{
-                    NavigationLink(destination: BoletoView(username: "estatico", mail: "Estatico", total: Double(cantidadBoletos)*80.00, cantidadBoletos: cantidadBoletos, asientosSeleccionados: asientosSeleccionados, funcionSeleccionada: funcionSeleccionada)) {
-                                               Image(systemName: "arrow.left.circle.fill")
-                                                   .resizable()
-                                                   .frame(width: 40, height: 40)
-                                                   .foregroundColor(.yellow)
-                                                   .padding()
-                                           }
-                }
+                //Flechas cambio de pagina
+                VStack(spacing: 4){
+                   Spacer()
+                    HStack{
+                        NavigationLink(destination: ContentView()){
+                                                   Image(systemName: "arrow.left.circle.fill")
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .padding()
+                                .foregroundColor(Color("TextoBlanco"))
+                                               }
+                        .buttonStyle(PlainButtonStyle())
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        
+                        //Asientos muestra
+                        HStack(spacing: 40) {
+                            
+                            //seleccionado
+                            VStack(spacing: 8) {
+                                Image(systemName: "carseat.left.fill")
+                                    .font(.system(size: 30))
+                                    .foregroundColor(.yellow)
+                                Text("Seleccionado")
+                                    .foregroundColor(.white)
+                                    .font(.caption)
+                            }
+                            
+                            // Asiento ocupado
+                            VStack(spacing: 8) {
+                                Image(systemName: "carseat.left.fill")
+                                    .font(.system(size: 30))
+                                    .foregroundColor(.gray)
+                                Text("Ocupado")
+                                    .foregroundColor(.white)
+                                    .font(.caption)
+                            }
+                            
+                            // Asiento seleccionado
+                            VStack(spacing: 8) {
+                                Image(systemName: "carseat.left.fill")
+                                    .font(.system(size: 30))
+                                    .foregroundColor(.green)
+                                Text("Libre")
+                                    .foregroundColor(.white)
+                                    .font(.caption)
+                            }
+                        }
+                        .padding()
+                        
+                        Spacer()
+                        NavigationLink(destination: BoletoView(username: "estatico", mail: "Estatico", total: Double(cantidadBoletos)*80.00, cantidadBoletos: cantidadBoletos, asientosSeleccionados: asientosSeleccionados, funcionSeleccionada: funcionSeleccionada)){
+                                                   Image(systemName: "arrow.right.circle.fill")
+                                                       .resizable()
+                                                       .frame(width: 40, height: 40)
+                                                       .padding()
+                                                       .foregroundColor(Color("TextoBlanco"))
+                                               }
+                        .buttonStyle(PlainButtonStyle())
+                    }
+                    }
+                .padding(.horizontal, 40)
+                .padding(.bottom, 100)
+               // .padding(.top, 100)
+                
+              
             }.onAppear() {
                 Task{
                     funciones = await functionViewModel.loadFunctionsByMovie(movieID: movie.id!, date: fechaSeleccionada)

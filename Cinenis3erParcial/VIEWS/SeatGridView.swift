@@ -11,7 +11,7 @@ struct SeatGridView: View {
     let function : Function
     @Binding var numeroAsientos : Int
     @Binding var asientosSeleccionados : [Seat]
-    let rows = Array("ABCDEFGH")
+    let rows = Array(" ABCDEFGH")
     let columns = 1...12
     var a : Int = 0
     var b : Int = 0
@@ -49,10 +49,10 @@ struct SeatGridView: View {
              
 
             
-            //números de columna
+            /*números de columna
             HStack(spacing: 10)  {
-                Text("   ") // espacio en blanco para alineación
-                    .frame(width: 30)
+               / Text("   ") // espacio en blanco para alineación
+                 //   .frame(width: 30)
 
                 ForEach(columns, id: \.self) { number in
                     Text("\(number)")
@@ -62,6 +62,7 @@ struct SeatGridView: View {
                         
                 }
             }
+                */
 
             //letras de asientos
             ForEach(0..<rows.count, id: \.self) { rowIndex in
@@ -89,42 +90,8 @@ struct SeatGridView: View {
                 }
             }
 
-           // Spacer()
-            
-            //Asientos muestra
-            HStack(spacing: 40) {
-                
-                //seleccionado
-                VStack(spacing: 8) {
-                    Image(systemName: "carseat.left.fill")
-                        .font(.system(size: 30))
-                        .foregroundColor(.yellow)
-                    Text("Seleccionado")
-                        .foregroundColor(.white)
-                        .font(.caption)
-                }
-                
-                // Asiento ocupado
-                VStack(spacing: 8) {
-                    Image(systemName: "carseat.left.fill")
-                        .font(.system(size: 30))
-                        .foregroundColor(.gray)
-                    Text("Ocupado")
-                        .foregroundColor(.white)
-                        .font(.caption)
-                }
-                
-                // Asiento seleccionado
-                VStack(spacing: 8) {
-                    Image(systemName: "carseat.left.fill")
-                        .font(.system(size: 30))
-                        .foregroundColor(.green)
-                    Text("Libre")
-                        .foregroundColor(.white)
-                        .font(.caption)
-                }
-            }
-            .padding()
+       
+          
 
         }
         .padding()

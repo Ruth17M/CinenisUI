@@ -22,10 +22,11 @@ struct HorariosView: View {
                                 .padding(.horizontal, 12)
                                 .padding(.vertical, 8)
                                 // La condición ahora se basa en 'formattedTime'
-                                .foregroundColor(.white)
+                               // .foregroundColor(.white)
                                 .background(Color("ColorAmarillo"))
                                 .clipShape(Capsule())
                         }
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
             }

@@ -40,7 +40,6 @@ struct DetallesMovieView: View {
             .foregroundColor(.white)
             .background(Color("ColorGris"))
         }
-       // .cornerRadius(10)
         .shadow(radius: 5)
 
             }
