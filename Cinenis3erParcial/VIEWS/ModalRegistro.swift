@@ -11,6 +11,9 @@ import SwiftUI
 public struct ModalRegistro: View {
     @State private var username: String = ""
     @State private var mail: String = ""
+    var cantidadBoletos : Int
+    var asientosSeleccionados : [Seat]
+    var funcionSeleccionada : Function
 
 
     public var body: some View {
@@ -70,7 +73,7 @@ public struct ModalRegistro: View {
                        /* BoletoView(username: "estatico", mail: String"estatico", total: total *80, cantidadBoletos: , asientosSeleccionados: <#[Seat]#>,
                         funcionSeleccionada: <#Function#>) */
                        
-                        NavigationLink(destination: /*BoletoView()*/ ContentView()) {
+                    NavigationLink(destination: BoletoView(username: username, mail: mail, total: Double(cantidadBoletos)*80.00, cantidadBoletos: cantidadBoletos, asientosSeleccionados: asientosSeleccionados, funcionSeleccionada: funcionSeleccionada)) {
                             Text("Enviar")
                                 .padding()
                                 .frame(maxWidth: 200)
