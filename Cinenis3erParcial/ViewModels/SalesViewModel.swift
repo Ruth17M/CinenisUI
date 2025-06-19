@@ -72,25 +72,27 @@ class SalesViewModel : ObservableObject {
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = try JSONEncoder().encode(requestBody)
+
             let (data, response) = try await URLSession.shared.data(for: request)
             let createdSale = try JSONDecoder().decode(SaleModel.self, from: data)
             self.saleRecieved = createdSale
-            
+
+
             if let sale = saleRecieved,
-               let qrBase64 = generateQR(from: sale) {
+            let qrBase64 = generateQR(from: sale) {
                 requestBody.qrCode = qrBase64
             }
-            
+
             await functionViewModel.reserveSeats(
                 seatsReserved: seatsReserved,
                 functionID:    functionID
-            )
+                )
+
         } catch {
             print("Error enviando la venta:", error)
         }
     }
-    
-    
+
     func generateQR(from sale: SaleModel) -> String? {
         guard let jsonData = try? JSONEncoder().encode(sale),
               let jsonString = String(data: jsonData, encoding: .utf8)

@@ -39,5 +39,4 @@ struct SaleModel : Codable, Identifiable{
     var seatsReserved : String
     var function: Function
     var qrCode: String?
-
 }

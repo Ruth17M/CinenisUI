@@ -15,9 +15,8 @@ public struct ModalRegistro: View {
     var asientosSeleccionados : [Seat]
     var funcionSeleccionada : Function
 
-
     public var body: some View {
-      
+        
         ZStack {
             
             // Fondo imagen estática con gradiente
@@ -41,8 +40,8 @@ public struct ModalRegistro: View {
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .padding(.top, 250)
-               
-             
+                
+                
                 
                 // Rectángulo vertical con los campos y botón
                 VStack(spacing: 16) {
@@ -69,6 +68,7 @@ public struct ModalRegistro: View {
                         .cornerRadius(10)
                         .foregroundColor(.white)
                     
+
                
                        /* BoletoView(username: "estatico", mail: String"estatico", total: total *80, cantidadBoletos: , asientosSeleccionados: <#[Seat]#>,
                         funcionSeleccionada: <#Function#>) */
@@ -83,6 +83,7 @@ public struct ModalRegistro: View {
                                 .buttonStyle(PlainButtonStyle())
                         }
                         .buttonStyle(PlainButtonStyle())
+
                 }
                 .padding()
                 .background(
@@ -91,13 +92,13 @@ public struct ModalRegistro: View {
                 )
                 .padding(.horizontal, 40)
             }
-             .frame(maxWidth: 400, maxHeight: .infinity, alignment: .top)
+            .frame(maxWidth: 400, maxHeight: .infinity, alignment: .top)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                  // .multilineTextAlignment(.center)
-
+        // .multilineTextAlignment(.center)
         
-            }
-        }
-      
-
+        
+    }
+    
+    
+}

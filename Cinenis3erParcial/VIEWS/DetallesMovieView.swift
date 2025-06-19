@@ -13,7 +13,6 @@ struct DetallesMovieView: View {
     var body: some View {
         VStack(spacing: 0) {
             
-            // Imagen arriba, ocupando todo el ancho del recuadro
             AsyncImage(url: URL(string: movie.image)) { image in
                 image
                     .resizable()

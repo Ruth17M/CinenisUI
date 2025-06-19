@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
-import AppKit
+
 import CoreImage
 import CoreImage.CIFilterBuiltins
-
-
+import AppKit
 
 struct BoletoView: View {
+ 
     var username: String
     var mail: String
     var total: Double
@@ -111,8 +111,12 @@ struct BoletoView: View {
                         salesViewModel.saleRecieved?.qrCode = qrBase64
                         let qrImage = salesViewModel.changeQRtoImage()
                     }
+
                 }
             }
         }
     }
 }
+
+
+

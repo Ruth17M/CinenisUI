@@ -47,3 +47,6 @@ struct HorariosView: View {
     }
 }
 
+#Preview {
+    ContentView()
+}
