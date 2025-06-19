@@ -24,7 +24,7 @@ struct MenuBar: View {
                 .frame(width: 100, height: 65)
                 .padding(10)
 
-            Spacer( )
+         //   Spacer( )
         /*    Text("Estrenos")
                 .font(.system(size: 20))
                 .foregroundColor(textColor)
