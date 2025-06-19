@@ -94,7 +94,7 @@ public struct ModalRegistro: View {
                 
                 
                 HStack{
-                    NavigationLink(destination: ContentView()){
+                    NavigationLink(destination: MovieView(function: funcionSeleccionada)){
                         Image(systemName: "arrow.left.circle.fill")
                             .resizable()
                             .frame(width: 40, height: 40)

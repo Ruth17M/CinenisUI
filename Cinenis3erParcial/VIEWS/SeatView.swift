@@ -17,6 +17,7 @@ struct SeatView: View {
     @Binding var seats : [[Seat]]
     @Binding var rowAsientosSeleccionados : [Int]
     @Binding var columnAsientosSeleccionados : [Int]
+    @Binding var seatCount : Int
     
     
     var body: some View {
@@ -30,12 +31,12 @@ struct SeatView: View {
             .frame(width: 30, height: 30)
             .foregroundColor(color(for: seat.status))
             .onTapGesture {
-                if(asientosSeleccionados.count < 3 && seat.status == SeatStatus.available){
+                if(asientosSeleccionados.count < seatCount && seat.status == SeatStatus.available){
                     asientosSeleccionados.append(seat)
                     rowAsientosSeleccionados.append(row)
                     columnAsientosSeleccionados.append(column)
                     seats[row][column].status = SeatStatus.selected
-                }else if(asientosSeleccionados.count == 3 && seat.status == SeatStatus.available){
+                }else if(asientosSeleccionados.count == seatCount && seat.status == SeatStatus.available){
                     asientosSeleccionados[0].status = SeatStatus.available
                     seats[rowAsientosSeleccionados[0]][columnAsientosSeleccionados[0]].status = SeatStatus.available
                     asientosSeleccionados.removeFirst()
