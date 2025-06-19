@@ -68,7 +68,7 @@ struct MovieView: View {
                 //Detalles y asientos
                 HStack{
                     
-                    
+                    SeatSelectorView(seatCount: $seatCount)
                     //Recuadro Detalles View
                     DetallesMovieView(movie: movie)
                         .frame(width: 400)
