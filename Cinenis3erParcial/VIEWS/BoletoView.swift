@@ -94,7 +94,7 @@ struct BoletoView: View {
                            Rectangle()
                                .fill(Color.white)
                                .frame(height: 40)
-                               .overlay(Text("|||||||||||||||||||||||||").font(.caption2).foregroundColor(.black))
+                               .overlay(Text("|||||||||||||||||||||||||").font(.largeTitle).foregroundColor(.black))
                        }
                        .padding()
                        .background(Color.red.opacity(0.9))

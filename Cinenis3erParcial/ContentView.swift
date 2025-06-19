@@ -25,5 +25,6 @@ struct ContentView: View {
         }
         .frame(width: screen.width, height: screen.height)
         .edgesIgnoringSafeArea(.top)
+        //.padding()
     }
 }

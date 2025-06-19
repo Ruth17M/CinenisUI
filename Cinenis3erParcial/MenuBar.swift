@@ -91,6 +91,7 @@ struct MenuBar: View {
         .padding(.horizontal)
         .background(hasBackground ? Color.black.opacity(0.8) : Color.clear)  // <-- fondo dinámico
         .animation(.easeInOut, value: hasBackground)
+        .padding( )
     }
 }
 

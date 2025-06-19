@@ -68,14 +68,22 @@ struct MovieView: View {
                 //Detalles y asientos
                 HStack{
                     
-                    SeatSelectorView(seatCount: $seatCount)
-                    //Recuadro Detalles View
-                    DetallesMovieView(movie: movie)
-                        .frame(width: 400)
-                        .padding(.leading, 150) //padding pelicula
-                        .padding(.top, 20) //padding pelicula
+                    VStack{
+                        //Recuadro Detalles View
+                        DetallesMovieView(movie: movie)
+                            .frame(width: 400)
+                            .padding(.leading, 150) //padding pelicula
+                            .padding(.top, 200) //padding pelicula
+                        
+                      //  Spacer()
+                
+                            //selector de asientos
+                            SeatSelectorView(seatCount: $seatCount)
+                            .foregroundColor(.white)
+                            .padding(.leading, 150)
+                    }
                     
-                    
+                   
                     
                     //Parte derecha de interfaz
                         VStack(alignment: .leading, spacing: 20){
@@ -107,6 +115,8 @@ struct MovieView: View {
                                                     .stroke(Color(colorClasificacion), lineWidth: 1)
                                             )
                             }
+                            .padding(.leading, 45)
+                            
                             // Seccion Horarios y Fecha
                             HStack(alignment: .top) {
                                        
@@ -136,6 +146,7 @@ struct MovieView: View {
                                            Divider().background(Color.white)
                                            
                                            HorariosView(movieID: movie.id!, functionViewModel: functionViewModel, funciones: $funciones)
+                                               .foregroundColor(.white)
                                            
                                          //  Divider().background(Color.white)
                                        }
@@ -147,7 +158,7 @@ struct MovieView: View {
                             SeatGridView(function: funcionSeleccionada,numeroAsientos: $seatCount, asientosSeleccionados: $asientosSeleccionados, rowAsientosSeleccionados: [], columnAsientosSeleccionados: [])
                         }
                         .padding(.trailing, 100)
-                        .padding(.top,200)
+                        .padding(.top,150)
                      }
                     
                     // MenuBar

@@ -91,6 +91,18 @@ public struct ModalRegistro: View {
                         .fill(Color.white.opacity(0.30))
                 )
                 .padding(.horizontal, 40)
+                
+                
+                HStack{
+                    NavigationLink(destination: ContentView()){
+                        Image(systemName: "arrow.left.circle.fill")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .padding()
+                            .foregroundColor(Color("TextoBlanco"))
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
             }
             .frame(maxWidth: 400, maxHeight: .infinity, alignment: .top)
         }
