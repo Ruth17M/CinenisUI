@@ -11,8 +11,10 @@ import SwiftUI
 public struct ModalRegistro: View {
     @State private var username: String = ""
     @State private var mail: String = ""
-    
-    
+    var cantidadBoletos : Int
+    var asientosSeleccionados : [Seat]
+    var funcionSeleccionada : Function
+
     public var body: some View {
         
         ZStack {
@@ -66,26 +68,22 @@ public struct ModalRegistro: View {
                         .cornerRadius(10)
                         .foregroundColor(.white)
                     
-                    
-                    /* BoletoView(username: "estatico", mail: String"estatico", total: total *80, cantidadBoletos: , asientosSeleccionados: <#[Seat]#>,
-                     funcionSeleccionada: <#Function#>) */
-                    
-                    NavigationLink(destination: /*BoletoView()*/ ContentView()) {
-                        Text("Enviar")
-                            .padding()
-                            .frame(maxWidth: 200)
-                            .background(Color("ColorAmarillo"))
-                        // .foregroundColor(Color("ColorAmarillo"))
-                            .cornerRadius(10)
-                            .buttonStyle(PlainButtonStyle())
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    
-                    
-                    
-                    
-                    
-                    
+
+               
+                       /* BoletoView(username: "estatico", mail: String"estatico", total: total *80, cantidadBoletos: , asientosSeleccionados: <#[Seat]#>,
+                        funcionSeleccionada: <#Function#>) */
+                       
+                    NavigationLink(destination: BoletoView(username: username, mail: mail, total: Double(cantidadBoletos)*80.00, cantidadBoletos: cantidadBoletos, asientosSeleccionados: asientosSeleccionados, funcionSeleccionada: funcionSeleccionada)) {
+                            Text("Enviar")
+                                .padding()
+                                .frame(maxWidth: 200)
+                                .background(Color("ColorAmarillo"))
+                               // .foregroundColor(Color("ColorAmarillo"))
+                                .cornerRadius(10)
+                                .buttonStyle(PlainButtonStyle())
+                        }
+                        .buttonStyle(PlainButtonStyle())
+
                 }
                 .padding()
                 .background(
@@ -93,6 +91,18 @@ public struct ModalRegistro: View {
                         .fill(Color.white.opacity(0.30))
                 )
                 .padding(.horizontal, 40)
+                
+                
+                HStack{
+                    NavigationLink(destination: MovieView(function: funcionSeleccionada)){
+                        Image(systemName: "arrow.left.circle.fill")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .padding()
+                            .foregroundColor(Color("TextoBlanco"))
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
             }
             .frame(maxWidth: 400, maxHeight: .infinity, alignment: .top)
         }

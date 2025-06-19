@@ -20,7 +20,7 @@ struct FechaHoyView: View {
                 .font(.system(size: 20, weight: .light))
             
             Divider()
-                .background(Color("ColorNegro"))
+                .background(Color("MenuTexto"))
                 .frame(width: 1335)
             
             // Días de la semana

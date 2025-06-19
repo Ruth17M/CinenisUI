@@ -15,8 +15,9 @@ struct MovieView: View {
     @State var movie : Movie
     @State var funciones : [Function]
     @State var funcionSeleccionada : Function
-    @State var cantidadBoletos : Int = 3
+    @State var cantidadBoletos : Int
     @State var asientosSeleccionados : [Seat] = []
+    @State private var isScrolledPastCarousel = false 
     
     var classification: String {
             movie.classification
@@ -40,8 +41,10 @@ struct MovieView: View {
             self._movie = State(initialValue: function.movie) // Then, initialize the @State 'movie'
             self.funcionSeleccionada = function
             self.funciones = []
+        self.cantidadBoletos = 1
     }
 
+    @State private var seatCount = 1
     
     var body: some View {
     
@@ -65,13 +68,22 @@ struct MovieView: View {
                 //Detalles y asientos
                 HStack{
                     
-                    //Recuadro Detalles View
-                    DetallesMovieView(movie: movie)
-                        .frame(width: 350)
-                        .padding(.leading, 150) //padding pelicula
-                        .padding(.top, 200) //padding pelicula
+                    VStack{
+                        //Recuadro Detalles View
+                        DetallesMovieView(movie: movie)
+                            .frame(width: 400)
+                            .padding(.leading, 150) //padding pelicula
+                            .padding(.top, 200) //padding pelicula
+                        
+                      //  Spacer()
+                
+                            //selector de asientos
+                            SeatSelectorView(seatCount: $seatCount)
+                            .foregroundColor(.white)
+                            .padding(.leading, 150)
+                    }
                     
-                    
+                   
                     
                     //Parte derecha de interfaz
                         VStack(alignment: .leading, spacing: 20){
@@ -104,6 +116,7 @@ struct MovieView: View {
                                             )
                             }
                             .padding(.leading, 45)
+                            
                             // Seccion Horarios y Fecha
                             HStack(alignment: .top) {
                                        
@@ -134,8 +147,6 @@ struct MovieView: View {
                                            
                                            HorariosView(movieID: movie.id!, functionViewModel: functionViewModel, funciones: $funciones)
                                                .foregroundColor(.white)
-
-
                                            
                                          //  Divider().background(Color.white)
                                        }
@@ -144,14 +155,14 @@ struct MovieView: View {
                                    .padding(.horizontal, 40)
                                
                            
-                            SeatGridView(function: funcionSeleccionada,numeroAsientos: $cantidadBoletos, asientosSeleccionados: $asientosSeleccionados, rowAsientosSeleccionados: [], columnAsientosSeleccionados: [])
+                            SeatGridView(function: funcionSeleccionada,numeroAsientos: $seatCount, asientosSeleccionados: $asientosSeleccionados, rowAsientosSeleccionados: [], columnAsientosSeleccionados: [])
                         }
                         .padding(.trailing, 100)
                         .padding(.top,150)
                      }
                     
                     // MenuBar
-                    MenuBar(isDarkImage: isDarkImage)
+                    MenuBar(isDarkImage: isDarkImage, hasBackground: isScrolledPastCarousel)
                         .padding(.top, 5)
                         .zIndex(1)
                         .frame(maxWidth: .infinity, alignment: .top)
@@ -208,7 +219,7 @@ struct MovieView: View {
                         .padding()
                         
                         Spacer()
-                        NavigationLink(destination:  ModalRegistro()
+                        NavigationLink(destination:  ModalRegistro(cantidadBoletos: seatCount, asientosSeleccionados: asientosSeleccionados, funcionSeleccionada: funcionSeleccionada)
                                       /* BoletoView(username: "", mail: "", total: , cantidadBoletos:  , asientosSeleccionados: , funcionSeleccionada: )*/){
                                                    Image(systemName: "arrow.right.circle.fill")
                                                        .resizable()

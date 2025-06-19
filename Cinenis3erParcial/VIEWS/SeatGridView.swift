@@ -77,7 +77,7 @@ struct SeatGridView: View {
                     ForEach(0..<columns.count, id: \.self) { columnIndex in
                         if rowIndex < seats.count && columnIndex < seats[rowIndex].count {
                             let seat = seats[rowIndex][columnIndex]
-                            SeatView(seat: seat, row: rowIndex, column: columnIndex, asientosSeleccionados: $asientosSeleccionados, seats: $seats, rowAsientosSeleccionados: $rowAsientosSeleccionados, columnAsientosSeleccionados: $columnAsientosSeleccionados)
+                            SeatView(seat: seat, row: rowIndex, column: columnIndex, asientosSeleccionados: $asientosSeleccionados, seats: $seats, rowAsientosSeleccionados: $rowAsientosSeleccionados, columnAsientosSeleccionados: $columnAsientosSeleccionados, seatCount: $numeroAsientos)
                         } else {
                             // asiento invisible
                             Rectangle()

@@ -13,7 +13,7 @@ class SalesViewModel : ObservableObject {
     private let qrFilter = CIFilter.qrCodeGenerator()
     init(){
         Task {
-
+            
         }
     }
     
@@ -44,7 +44,7 @@ class SalesViewModel : ObservableObject {
             seats.append("\(seat.row)\(seat.column),")
         }
         let iso8601Formatter = ISO8601DateFormatter()
-                iso8601Formatter.formatOptions = [.withInternetDateTime]
+        iso8601Formatter.formatOptions = [.withInternetDateTime]
         let saleDateString = iso8601Formatter.string(from: Date())
         struct CreateSaleRequest: Encodable {
             let saleDate: String // Or use Date and a custom encoder/formatter

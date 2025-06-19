@@ -4,27 +4,28 @@
 //
 //  Created by ISSC_411_2024 on 10/06/25.
 //
-
 import SwiftUI
-
-import SwiftUI
-
 struct MenuBar: View {
     var isDarkImage: Bool
+    var hasBackground: Bool  // Nuevo parámetro
     @State private var menuAbierto = false
     let categorias = ["Terror", "Comedia", "Romance", "Ficción", "Infantiles"]
 
     var body: some View {
-        let textColor = isDarkImage ? Color.white : Color.black
-        let logoName = isDarkImage ? "LogoBlanco" : "LogoNegro"
+        let textColor = hasBackground ? Color.white : (isDarkImage ? Color.white : Color.black)
+
+        let logoName = (hasBackground || isDarkImage) ? "LogoBlanco" : "LogoNegro"
+
 
         HStack(spacing: 35) {
+            
             Image(logoName)
                 .resizable()
                 .frame(width: 100, height: 65)
                 .padding(10)
 
-            Text("Estrenos")
+         //   Spacer( )
+        /*    Text("Estrenos")
                 .font(.system(size: 20))
                 .foregroundColor(textColor)
 
@@ -75,12 +76,10 @@ struct MenuBar: View {
                     .foregroundColor(textColor)
 
                 TextField("Buscar películas", text: .constant(""))
-                   // .foregroundColor(.white)
                    .foregroundStyle(textColor)
                     .font(.system(size: 17))
                     .padding(5)
                     .textFieldStyle(PlainTextFieldStyle())
-                    
             }
             .padding(7)
             .overlay(
@@ -89,15 +88,13 @@ struct MenuBar: View {
                     .opacity(1)
             )
             .frame(width: 180)
+         */
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal)
+        .background(hasBackground ? Color.black.opacity(0.8) : Color.clear)  // <-- fondo dinámico
+        .animation(.easeInOut, value: hasBackground)
+      //  .padding( )
     }
 }
-
-
-#Preview {
-    ContentView()
-}
-
 

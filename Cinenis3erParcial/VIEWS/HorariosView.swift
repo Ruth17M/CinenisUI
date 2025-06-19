@@ -21,6 +21,10 @@ struct HorariosView: View {
                                 .font(.system(size: 20, weight: .light))
                                 .padding(.horizontal, 12)
                                 .padding(.vertical, 8)
+                                .overlay(
+                                    Capsule()
+                                        .stroke(Color("MenuTexto"), lineWidth: 1.5)  // Cambia Color.blue por el color que prefieras
+                                )
                                 // La condición ahora se basa en 'formattedTime'
                               //  .foregroundColor(.white)
                                

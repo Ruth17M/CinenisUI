@@ -13,11 +13,10 @@ struct DetallesMovieView: View {
     var body: some View {
         VStack(spacing: 0) {
             
- 
             AsyncImage(url: URL(string: movie.image)) { image in
                 image
                     .resizable()
-                    .frame(maxWidth: 350, maxHeight: 370)
+                    .frame(maxWidth: 386, maxHeight: 350)
             } placeholder: {
                 ProgressView()
             }
@@ -26,10 +25,10 @@ struct DetallesMovieView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Director").bold()
                 Text(movie.director)
-
+                
                 Text("Actores").bold()
                 Text(movie.actors)
-
+                
                 Text("Descripción").bold()
                 Text(movie.description)
 
